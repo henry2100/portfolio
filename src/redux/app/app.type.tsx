@@ -1,0 +1,2 @@
+export const SET_DARK_MODE = 'SET_DARK_MODE';
+export const RESET_APP_STATE = 'RESET_APP_STATE';
