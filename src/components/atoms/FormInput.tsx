@@ -92,7 +92,7 @@ const FormInput = React.forwardRef(({
             min={min}
             max={min}
             required={required}
-            className={`${inputStyle2} p-2 bg-NoColor focus:outline-none w-full ${focus && focus}`}
+            className={`${inputStyle2} p-2 bg-NoColor focus:outline-none w-full text-Primary ${focus && focus}`}
             disabled={disabled}
             autoComplete={autoComplete}
           />

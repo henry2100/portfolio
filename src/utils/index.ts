@@ -17,12 +17,11 @@ const darkMode =  state.app.darkMode;
 
 export const inputNum = /^[0-9]*$/;
 export const inputFloat = /^\d*\.?(?:\d{1,2})?$/;
-export const inputAlpha = /^[a-zA-Z]+$/;
-export const inputEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+export const inputAlpha = /^[a-zA-Z\s]+$/;
+export const inputEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+export const validteEmail = /\S+@\S+\.\S+/;
 export const specialChar = /(?=.*?[#?!@$%^&*-])/;
-
 export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
-// export const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/;
 
 export const appMode = () => {
   return 'development';

@@ -1,10 +1,12 @@
 import {
     SET_DARK_MODE,
+    SET_IN_VIEW,
     RESET_APP_STATE
 } from './app.type';
 
 const INIT_APP_STATE = {
-    darkMode: false
+    darkMode: false,
+    sectionInView: ''
 }
 
 const AppReducer = (state = INIT_APP_STATE, action) => {
@@ -15,9 +17,15 @@ const AppReducer = (state = INIT_APP_STATE, action) => {
                 darkMode: !state.darkMode
             }
 
+        case SET_IN_VIEW:
+            return {
+                ...state,
+                sectionInView: action.payload
+            }
+
         case RESET_APP_STATE:
             return INIT_APP_STATE
-    
+
         default:
             return state;
     }

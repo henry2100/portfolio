@@ -7,10 +7,12 @@ interface CarouselData {
     carouselBtnStyle?: String,
     images: any[],
     autoSlide?: boolean,
-    autoSlideInterval?: any
+    autoSlideInterval?: any,
+    leftBtn?: string,
+    rightBtn?: string
 }
 
-const Carousel = ({ containerStyle, mainSectionStyle, images, carouselBtnStyle, autoSlide = true, autoSlideInterval = 3000 }: CarouselData) => {
+const Carousel = ({ containerStyle, mainSectionStyle, images, carouselBtnStyle, autoSlide = true, autoSlideInterval = 3000, leftBtn, rightBtn }: CarouselData) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -44,13 +46,13 @@ const Carousel = ({ containerStyle, mainSectionStyle, images, carouselBtnStyle, 
                 ))}
             </div>
             <button
-                className={`${carouselBtnStyle} absolute top-1/2 -left-20 transform -translate-y-1/2 bg-BackDrop_l_md hover:bg-BackDrop_l_xl rounded-full text-white p-2 w-10 h-10 flex justify-center items-center`}
+                className={`${carouselBtnStyle} ${leftBtn} absolute top-1/2 -left-20 tablet:left-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center`}
                 onClick={prevSlide}
             >
                 <IoIosArrowBack />
             </button>
             <button
-                className={`${carouselBtnStyle} absolute top-1/2 -right-20 transform -translate-y-1/2 bg-BackDrop_l_md hover:bg-BackDrop_l_xl rounded-full text-white p-2 w-10 h-10 flex justify-center items-center`}
+                className={`${carouselBtnStyle} ${rightBtn} absolute top-1/2 -right-20 tablet:right-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center`}
                 onClick={nextSlide}
             >
                 <IoIosArrowForward />
@@ -59,7 +61,7 @@ const Carousel = ({ containerStyle, mainSectionStyle, images, carouselBtnStyle, 
                 {images.map((_, i) => (
                     <div
                         key={i}
-                        className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${currentIndex === i ? "w-8 bg-Primary" : "w-4 bg-BackDrop_l_md hover:bg-BackDrop_l_xl"
+                        className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${currentIndex === i ? "w-8 bg-Primary" : "w-4 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md"
                             }`}
                         onClick={() => setCurrentIndex(i)}
                     />
@@ -70,25 +72,3 @@ const Carousel = ({ containerStyle, mainSectionStyle, images, carouselBtnStyle, 
 };
 
 export default Carousel;
-
-
-
-
-
-
-
-
-
-
-{/* <div className="absolute -bottom-24 left-0 right-0 flex justify-center items-center mb-4 gap-1">
-        {images.map((_, i) => (
-            <div
-                key={i}
-                className={`block cursor-pointer rounded-2xl transition-all content-[''] border-2 overflow-hidden ${currentIndex === i ? "w-[75px] h-[50px] border-Primary" : "w-[40px] h-[30px] border-BackDrop_l_md hover:border-BackDrop_l_xl"
-                    }`}
-                onClick={() => setCurrentIndex(i)}
-            >
-                <img src={_} alt='images' className='w-full h-full'/>
-            </div>
-        ))}
-    </div> */}

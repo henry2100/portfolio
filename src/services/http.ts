@@ -3,7 +3,8 @@ import { getValues } from './storage';
 import { handleException } from 'utils';
 
 export const username = getValues('username');
-export const BASE_URL = `${process.env.REACT_APP_TEST_BASE_URL}` //TEST_URL
+export const BASE_URL = process.env.REACT_APP_STAGING_BASE_URL //STAGING_URL
+// export const BASE_URL = process.env.REACT_APP_TEST_BASE_URL //TEST_URL
 
 export const getRequest = async (url: any, headers?:any) => {
     try {
@@ -20,8 +21,6 @@ export const postRequest = async (url: any, headers?:any, requestData?: any) => 
         return res;
     } catch (error) {
         handleException(error)
-        console.log(error);
-        
     }
 }
 
