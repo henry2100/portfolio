@@ -7,8 +7,8 @@ const Alert = (type: AlertType, message:string, darkMode?:boolean) => {
     const alertStyle = { 
         minWidth: '250px', 
         maxWidth: '350px' ,
-        backgroundColor: darkMode ? '#0f172a' : '#fff', 
-        color: darkMode ? '#fff' : '#0f172a' 
+        backgroundColor: darkMode ? '#424242' : '#fff', 
+        color: darkMode ? '#fff' : '#424242' 
     }
 
     if(type === 'success') return toast.success(message, { position: 'top-center', style: alertStyle});

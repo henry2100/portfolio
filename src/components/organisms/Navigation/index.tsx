@@ -7,6 +7,8 @@ import navData from 'components/molecules/navData';
 import { FaCaretDown, FaUser } from "react-icons/fa6";
 import logoImg from '../../../assets/svg/logo/Group 11.svg';
 import logoImg2 from '../../../assets/svg/logo/Group 12.svg';
+import logoImg3 from '../../../assets/images/my_favicon.png';
+import { TestLogo, TestLogo2, HEAmainLogo } from '../../../assets/svg/logo/testLogo';
 import NavModal from './NavModal';
 // import { setLoginStatus } from '../../../redux/auth/auth.action';
 import { connect } from 'react-redux';
@@ -16,10 +18,12 @@ type Props = {
     style?: string;
     logoImg?: string;
     login_state?: boolean;
+    sectionInView?: string;
 }
 
 const TopNav: React.FC<Props> = (props) => {
     const [dropdown, setDropdown] = useState(false);
+    const [onLogoHover, setOnLogoHover] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [selected, setSelected] = useState('');
 
@@ -59,21 +63,28 @@ const TopNav: React.FC<Props> = (props) => {
 
     const navItemFunc = (item: { newPage: any; navItem: any; navType?: string; action: any; style: any; icon1: any; icon2: any; available: any; }, index: React.Key | null | undefined) => {
         return (
-            <NavItem
-                key={index}
-                sectID={item.navItem}
-                navItem={item.navItem}
-                itemStyle="truncate"
-                icon_1={item.icon1}
-                icon_2={item.icon2}
-                available={item.available}
-                style={item.style}
-                active={ToSnakeCase(item.navItem) === selected}
-                navLink={`/dashboard/${ToSnakeCase(item.navItem)}`}
-                onClick={(e) => handleNavItemClick(e, item)}
-                action={item.action}
-                toNewPage={item.newPage}
-            />
+            <>
+                {console.log({
+                    active: ToSnakeCase(item.navItem) === ToSnakeCase(props.sectionInView),
+                    navItem: item.navItem,
+                    sectionInView: props.sectionInView
+                })}
+                <NavItem
+                    key={index}
+                    sectID={item.navItem}
+                    navItem={item.navItem}
+                    itemStyle="truncate"
+                    icon_1={item.icon1}
+                    icon_2={item.icon2}
+                    available={item.available}
+                    style={item.style}
+                    active={ToSnakeCase(item.navItem) === ToSnakeCase(props.sectionInView)}
+                    navLink={`/dashboard/${ToSnakeCase(item.navItem)}`}
+                    onClick={(e) => handleNavItemClick(e, item)}
+                    action={item.action}
+                    toNewPage={item.newPage}
+                />
+            </>
         )
     }
 
@@ -81,13 +92,27 @@ const TopNav: React.FC<Props> = (props) => {
         <>
             <div className={`${props.style} px-40 w-full flex justify-center items-center gap-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}>
                 <div className='w-full max-w-6xl flex justify-between items-center gap-10'>
-                    <div className='min-w-1/4 w-fit nav_title_text text-xl text-white relative flex justify-center items-center gap-1'>
-                        {/* <img src={logoImg} alt='logo' className='w-10 h-10 animate-spin'/> */}
-                        <img src={logoImg2} alt='logo' className='w-10 h-10 group-hover:animate-pulse' />
-                        <span className='nav_title_text text-white hover:text-Primary cursor-pointer'>
-                            H@A
-                        </span>
+                    <div
+                        onMouseEnter={() => setOnLogoHover(true)}
+                        onMouseLeave={() => setOnLogoHover(false)}
+                    >
+                        <ScrollLink
+                            to={'Home'}
+                            spy={true}
+                            smooth={true}
+                            offset={0}
+                            duration={1500}
+                            className='min-w-1/4 w-fit nav_title_text text-xl text-white relative flex justify-center items-center cursor-pointer'
+                        >
+                            <HEAmainLogo
+                                primaryColor={onLogoHover ? '#6366f1' : '#fff'}
+                                secondaryColor={'#fff'}
+                                width={'100'}
+                                height={'28'}
+                            />
+                        </ScrollLink>
                     </div>
+
                     <div className='min-w-1/2 w-fit flex items-center gap-8'>
                         <nav className='w-fit flex items-center gap-[2px]'>
                             {navItems.map((item, i) => (
@@ -96,23 +121,7 @@ const TopNav: React.FC<Props> = (props) => {
                                     navItemFunc(item, i)
                                     : navItemFunc(item, i)
                             ))}
-
-                            <ScrollLink
-                                to={'footer'}
-                                spy={true}
-                                smooth={true}
-                                offset={0}
-                                duration={1500}
-                                className='py-1 px-3 border-[.5px] flex justify-center items-center border-Primary text-Primary hover:bg-Primary hover:text-white rounded-md transition ease-in-out duration-250 cursor-pointer'
-                            >
-                                My Resume
-                            </ScrollLink>
                         </nav>
-                        <div className={`group flex items-center gap-2 cursor-pointer`}
-                            onClick={() => setDropdown(true)}
-                        >
-                            {profileImg}
-                        </div>
                     </div>
                 </div>
             </div>
@@ -122,9 +131,31 @@ const TopNav: React.FC<Props> = (props) => {
 }
 
 const mapStateToProps = (state: any) => ({
-    login_state: state.auth.login_state
+    login_state: state.auth.login_state,
+    sectionInView: state.app.sectionInView
 })
 
 const mapDispatchToProps = (dispatch: any) => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNav);
+
+
+
+
+
+
+
+
+{/* <TestLogo
+                            primaryColor={'#6366f1'}
+                            width={'100'}
+                            height={'auto'}
+                        /> */}
+{/* <TestLogo2
+                            primaryColor={'#6366f1'}
+                            width={'50'}
+                            height={'auto'}
+                        /> */}
+{/* <span className='nav_title_text text-white hover:text-Primary'>
+                            {`</H@A>`}
+                        </span> */}

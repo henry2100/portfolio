@@ -6,6 +6,8 @@ import navData from 'components/molecules/navData';
 import NavItem from 'components/atoms/NavItem';
 import SocialLinks from '../Footer/SocialLinks';
 import { connect } from 'react-redux';
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+
 // import { resetAppState } from '../../../redux_/app/app.action';
 // import { setLoginStatus, resetAuthState } from '../../../redux_/auth/auth.action';
 // import Alert from 'components/atoms/Alert';
@@ -58,8 +60,8 @@ const NavModal = (props) => {
                 icon_1={item.icon1}
                 icon_2={item.icon2}
                 available={item.available}
-                style={`${item.style} text-DarkBg3`}
-                active={ToSnakeCase(item.navItem) === selected}
+                style={`${item.style}`}
+                active={ToSnakeCase(item.navItem) === ToSnakeCase(props.sectionInView)}
                 navLink={`/dashboard/${ToSnakeCase(item.navItem)}`}
                 onClick={(e) => handleNavItemClick(e, item)}
                 action={item.action}
@@ -79,7 +81,7 @@ const NavModal = (props) => {
     return (
         <AppModal
             handleClose={() => props.setModalState(false)}
-            modalStyle={`${props.darkMode ? 'bg-Primary_800' : 'bg-Background1'} border-2 border-NoColor hover:border-Primary min-h-[40vh] mobile:min-h-[30vh] overflow-y-scroll desktop:w-[25%] w-2/5 mobile:w-4/5 max-w-[320px] min-h-fit max-h-[600px] mobile:max-h-[80vh] h-fit z-30 right-0 left-0 top-24 mobile:top-16 mobile:right-0 mobile:left-0 mx-auto animate-slide_down2 mobile:animate-fade_in rounded-xl mobile:rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition ease-in-out duration-500`}
+            modalStyle={`bg-DarkBg10 border-2 border-NoColor hover:border-Primary min-h-[40vh] mobile:min-h-[30vh] overflow-y-scroll desktop:w-[25%] w-2/5 mobile:w-4/5 max-w-[320px] min-h-fit max-h-[600px] mobile:max-h-[80vh] h-fit z-30 right-0 left-0 top-24 mx-auto animate-slide_down2 mobile:animate-fade_in rounded-xl mobile:rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition ease-in-out duration-500`}
             backDropStyle='!bg-BackDrop_d_xl'
             contentStyle="h-fit min-h-[40vh] mobile:min-h-[30vh] p-5 flex flex-col justify-evenly gap-5"
             closeBtnStyle='text-Primary'
@@ -88,7 +90,7 @@ const NavModal = (props) => {
                 {navItems.map((item, i) => (
                     userStatus
                         ? item.newPage &&
-                            navItemFunc(item, i)
+                        navItemFunc(item, i)
                         : navItemFunc(item, i)
                 ))}
             </nav>
@@ -99,30 +101,19 @@ const NavModal = (props) => {
                 ))}
             </nav>
 
-            <div className='flex flex-col gap-5'>
-                <div className='flex flex-col gap-3'>
-                    {onBoardingData.map((item, i) => (
-                        <span key={i} className={`${item.style} py-1 px-3 border-[.5px] justify-center items-center border-Primary text-white bg-Primary rounded-md transition ease-in-out duration-250 cursor-pointer`}
-                            onClick={item.action || undefined}
-                        >
-                            {item.navItem}
-                        </span>
-                    ))}
-                </div>
-
-                <SocialLinks
+            <SocialLinks
                     style='!border-none !p-0'
                     iconWrapperStyle='!justify-evenly w-full'
                     iconStyle='!w-5 !h-5 !text-Primary'
                     social
                 />
-            </div>
         </AppModal>
     )
 }
 
 const mapStateToProps = (state: any) => ({
-    login_state: state.auth.login_state
+    login_state: state.auth.login_state,
+    sectionInView: state.app.sectionInView
 })
 
 const mapDispatchToProps = (dispatch: any) => ({})

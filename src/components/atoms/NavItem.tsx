@@ -19,6 +19,7 @@ interface Props {
     floating?: boolean;
     floatingStyle?: string;
     toNewPage?: boolean;
+    sectionInView?: string;
     onClick: ((e?: any) => void);
     action: ((e?: any) => void) | null;
     setModalState?: (e?: any) => void | null;
@@ -41,12 +42,14 @@ const NavItem: React.FC<Props> = (props) => {
         props.setModalState && props.setModalState(false);
     };
 
+    console.log("sectionInView:", props.sectID);
+
     const navItemContent = (
         <div onClick={handleClick} data-name={ToSnakeCase(props.navItem)} className={props.style}>
             <div
                 data-name={ToSnakeCase(props.navItem)}
                 className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[100px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
-                    ${props.active && !props.floating ? 'text-Primary' : props.floating ? 'text-Primary' : 'text-white'} ${props.floatingStyle && props.floatingStyle} ${!props.active && '!text-Secondary'} hover:text-Primary`}
+                    ${props.active || props.sectionInView ? 'text-Primary' : 'text-white'} ${!props.active && '!text-Secondary'} hover:text-Primary`}
             >
                 {props.icon_1 && props.icon_2 && (
                     <span className="flex-shrink-0 pointer-events-none">
@@ -56,7 +59,7 @@ const NavItem: React.FC<Props> = (props) => {
                 <span className="pointer-events-none whitespace-nowrap !font-normal">
                     {props.navItem}
                 </span>
-                <div className={`group-hover:block ${props.active ? 'block' : 'hidden'} ${props.floating ? 'w-1/3' : 'w-1/2'} border-2 border-Primary animate-slide_right absolute bottom-0 rounded-md transition ease-in-out duration-500`}></div>
+                <div className={`group-hover:block ${props.active ? 'block' : 'hidden'} w-1/2 border-[5px] border-Primary animate-slide_right absolute bottom-0 rounded-md transition ease-in-out duration-500`}></div>
             </div>
         </div>
     );
@@ -68,7 +71,7 @@ const NavItem: React.FC<Props> = (props) => {
             smooth={true}
             offset={0}
             duration={1500}
-            className={`${props.style} cursor-pointer flex flex-col group hover overflow-hidden`}
+            className={`${props.style} ${props.active && props.navItem === 'My Resume' && 'bg-Primary'} cursor-pointer flex flex-col group hover overflow-hidden`}
         >
             <div
                 data-name={ToSnakeCase(props.navItem)}
@@ -76,7 +79,7 @@ const NavItem: React.FC<Props> = (props) => {
                     props.setModalState && props.setModalState(false);
                 }}
                 className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[100px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
-                    ${props.active && !props.floating ? 'text-Primary' : props.floating ? 'text-Primary' : 'text-white'} ${props.floatingStyle && props.floatingStyle} ${!props.active && '!text-white'} hover:text-Primary`}
+                    ${props.active ? 'text-Primary' : 'text-white'} ${!props.active && '!text-white'} hover:text-Primary ${props.active && props.navItem === 'My Resume' && 'text-white'}`}
             >
                 {props.icon_1 && props.icon_2 && (
                     <span className="flex-shrink-0 pointer-events-none">
@@ -86,20 +89,11 @@ const NavItem: React.FC<Props> = (props) => {
                 <span className="pointer-events-none whitespace-nowrap !font-normal">
                     {props.navItem}
                 </span>
-                <div className={`group-hover:block ${props.active ? 'block' : 'hidden'} ${props.floating ? 'w-1/3' : 'w-1/2'} border-2 border-Primary animate-slide_right absolute bottom-0 rounded-md transition ease-in-out duration-500`}></div>
+
+                {props.navItem !== 'My Resume' && <div className={`group-hover:block ${props.active ? 'block' : 'hidden'} w-1/2 border-2 border-Primary animate-slide_right absolute bottom-0 rounded-md transition ease-in-out duration-500`}></div>}
             </div>
         </ScrollLink>
     );
-
-    // const hashLinks = (
-    //     <HashLink
-    //         to={props.navLink}
-    //         smooth={true}
-    //         className={props.style}
-    //     >
-    //         {props.navItem}
-    //     </HashLink>
-    // )
 
     const content = props.toNewPage
         ? navItemContent
@@ -109,7 +103,8 @@ const NavItem: React.FC<Props> = (props) => {
 };
 
 const mapStateToProps = (state: any) => ({
-    darkMode: state.app.darkMode
+    darkMode: state.app.darkMode,
+    sectionInView: state.app.sectionInView
 })
 
 export default connect(mapStateToProps, null)(NavItem);

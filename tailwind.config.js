@@ -13,8 +13,13 @@ module.exports = {
       'desktop': { 'min': '1200px' }
     },
     extend: {
+      // borderWidth: {
+      //   '600': '600px',
+      //   '400': '400px',
+      // },
       boxShadow: {
-        'custom_border': '3px 0px 20px 0px #0000000A',
+        custom_border: '3px 0px 20px 0px #0000000A',
+        custom: 'rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px',
       },
       transitionDuration: {
         '250': '250ms',
@@ -31,10 +36,11 @@ module.exports = {
         // Primary: '#FA003F', //Rose red
         // Primary: '#8B0000', //Dark red
         // Primary: '#A52A2A', //Red brown
-        // Primary: '#913831', //RRed ochre:
+        // Primary: '#913831', //Red ochre:
+        // Primary: '#BE0C0A', //Red Phillip:
         
-        Primary: '#3186FD', //Rose red
-        Primary_pale: '#3186FD1A', // 10%
+        Primary: '#6366f1', //Red Phillip
+        Primary_pale: '#6366f11A', // 10%
         Secondary: '#6E6E6E', //Dim-grey 
 
         Success: "#04A778",
@@ -128,15 +134,17 @@ module.exports = {
         DarkBg9: '#0000000d',
         DarkBg10: '#202020',
 
-        Primary_Accents_xs: "#3186FD1a",
-        Primary_Accents_sm: "#3186FD33",
-        Primary_Accents_md: "#3186FD4d",
-        Primary_Accents_lg: "#3186FD66",
-        Primary_Accents_xl: "#3186FD80",
-        Primary_Accents_2xl: "#3186FD99",
-        Primary_Accents_3xl: "#3186FDb3",
-        Primary_Accents_4xl: "#3186FDcc",
-        Primary_Accents_5xl: "#3186FDe6",
+        Primary_Accents_3xs: "#6366f105",
+        Primary_Accents_2xs: "#6366f10d",
+        Primary_Accents_xs: "#6366f11a",
+        Primary_Accents_sm: "#6366f133",
+        Primary_Accents_md: "#6366f14d",
+        Primary_Accents_lg: "#6366f166",
+        Primary_Accents_xl: "#6366f180",
+        Primary_Accents_2xl: "#6366f199",
+        Primary_Accents_3xl: "#6366f1b3",
+        Primary_Accents_4xl: "#6366f1cc",
+        Primary_Accents_5xl: "#6366f1e6",
 
         BackDrop_l_xs: "#ffffff1a",
         BackDrop_l_sm: "#ffffff33",
@@ -239,6 +247,16 @@ module.exports = {
             transform: 'translateX(0)'
           }
         },
+        slideLeft2: {
+          from: {
+            opacity: 0,
+            transform: 'translateX(50%)'
+          },
+          to: {
+            opacity: 1, 
+            transform: 'translateX(0%)'
+          }
+        },
         fullRoll: {
           from: {
             transform: 'rotate(0deg)'
@@ -317,17 +335,17 @@ module.exports = {
         'slide_right3': 'slideRight3 1s linear',
         'slide_right4': 'slideRight4 .75s linear',
         'slide_left': 'slideLeft .25s linear',
+        'slide_left2': 'slideLeft2 .75s linear',
         'fullRoll': 'fullRoll .8s linear infinite',
         'fade_in': 'fadeIn .25s linear',
         'carousel_slide_left': 'leftSlider 1.5s linear',
         'carousel_slide_right': 'rightSlider 1.5s linear',
         'waving-hand': 'wave 2s linear infinite',
         'left_right_slider': 'leftRight 3s linear infinite',
-        // 'pulseBorder': 'pulseBorder 1.5s ease-in-out infinite',
-        // 'slideGradient': 'slideGradient 3s linear infinite',
+        'pulseBorder': 'pulseBorder 1.5s ease-in-out infinite',
+        'slideGradient': 'slideGradient 3s linear infinite',
       },
     },
   },
   plugins: [],
 }
-
