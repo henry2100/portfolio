@@ -20,7 +20,7 @@ const SkillCard: React.FC<skillCardProps> = ({ images, title, proficiency, descr
             <img
                 src={images}
                 alt={title}
-                className='absolute rounded-lg w-full h-full object-cover object-center scale-110 transition ease-in-out duration-500 opacity-10'
+                className='absolute rounded-lg w-full h-full object-cover object-center scale-110 group-hover:scale-125 transition ease-in-out duration-500 opacity-10'
             />
 
             {/* Icon Section */}

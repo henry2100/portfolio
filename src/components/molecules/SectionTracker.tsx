@@ -27,7 +27,7 @@ const Section: React.FC<SectionProps> = ({
     };
 
     const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.5, // 50% of the element needs to be visible
+      threshold: 0.5,
     });
 
     const sectionElement = sectionRef.current;
@@ -40,12 +40,12 @@ const Section: React.FC<SectionProps> = ({
         observer.unobserve(sectionElement);
       }
     };
-  }, [sectionInView, setSectionInView]); // Dependencies include sectionInView and setSectionInView
+  }, [sectionInView, setSectionInView]);
 
-  console.log({
-    sectionRef: sectionRef.current?.id,
-    sectionInView,
-  });
+  // console.log({
+  //   sectionRef: sectionRef.current?.id,
+  //   sectionInView,
+  // });
 
   return (
     <div

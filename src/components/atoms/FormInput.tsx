@@ -64,12 +64,10 @@ const FormInput = React.forwardRef(({
   btnElement,
   btnType,
   btnText,
-  btnImg,
-  btnImgStyle,
   btnStyle,
   onClick }: Props, ref) => {
   const btnContent = (
-    <Button btnType={btnType} btnText={btnText} btnImg={btnImg} btnImgStyle={btnImgStyle} btnStyle={btnStyle} handleClick={onClick} />
+    <Button btnType={btnType} btnText={btnText} btnStyle={btnStyle} handleClick={onClick} />
   )
 
   return (

@@ -10,7 +10,6 @@ import logoImg2 from '../../../assets/svg/logo/Group 12.svg';
 import logoImg3 from '../../../assets/images/my_favicon.png';
 import { TestLogo, TestLogo2, HEAmainLogo } from '../../../assets/svg/logo/testLogo';
 import NavModal from './NavModal';
-// import { setLoginStatus } from '../../../redux/auth/auth.action';
 import { connect } from 'react-redux';
 
 type Props = {
