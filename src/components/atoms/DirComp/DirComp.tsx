@@ -92,6 +92,7 @@ const DirComp: React.FC<dirCardProps> = ({ itemIndex, images, imgStyle, title, t
       onMouseLeave={(e) => handleMouseLeave(e, itemIndex)}
     >
       <img className={`${imgStyle} w-full h-full object-cover transition-transform duration-500 scale-110 group-hover:scale-125`} src={images} alt={`Image ${itemIndex + 1}`} />
+      <img className={`${imgStyle} absolute right-3 top-[10%] flex desktop:hidden mobile:hidden w-28 h-28 object-cover transition-transform duration-500 scale-110 group-hover:scale-125`} src={images} alt={`Image ${itemIndex + 1}`} />
       <div
         className={`overlay absolute inset-0 bg-black/70 text-white flex items-center justify-center opacity-0 transition-all duration-500 p-5 ${overlayStyle}`}
         style={{ transform: "translate(0, 0)" }}
@@ -137,6 +138,8 @@ const DirComp: React.FC<dirCardProps> = ({ itemIndex, images, imgStyle, title, t
         <span className={`${overlayDescriptionLayout} w-full text-sm font-normal text-gray-800 group-hover:text-white transition ease-in-out duration-500 max-w-[200px] text-right`}>
           {description}
         </span>
+
+
       </div>
     </div>
   );

@@ -45,6 +45,7 @@ const Carousel = ({ containerStyle, mainSectionStyle, images, carouselBtnStyle, 
                     </div>
                 ))}
             </div>
+            
             <button
                 className={`${carouselBtnStyle} ${leftBtn} absolute top-1/2 -left-20 tablet:left-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center`}
                 onClick={prevSlide}

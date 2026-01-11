@@ -137,24 +137,3 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: any) => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNav);
-
-
-
-
-
-
-
-
-{/* <TestLogo
-                            primaryColor={'#6366f1'}
-                            width={'100'}
-                            height={'auto'}
-                        /> */}
-{/* <TestLogo2
-                            primaryColor={'#6366f1'}
-                            width={'50'}
-                            height={'auto'}
-                        /> */}
-{/* <span className='nav_title_text text-white hover:text-Primary'>
-                            {`</H@A>`}
-                        </span> */}

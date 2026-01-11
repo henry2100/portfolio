@@ -11,15 +11,6 @@ import PageHeader from "./PageHeader";
 const Hero = () => {
   return (
     <div className="relative min-h-screen">
-      <SocialLinks
-        containerStyle="bg-DarkBg3 !px-40"
-        style="!border-none !py-4 mobile:!py-2 mobile:!px-5 !flex mobile:!flex-row !justify-between mobile:!justify-center w-full"
-        iconStyle="!w-4 !h-4"
-        social
-        contact
-        contactStyle="mobile:!hidden"
-        // policies
-      />
       <TopNav style="tablet:!hidden absolute z-20 bg-DarkBg10 py-5 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" />
       <MobileNav style="tablet:!flex absolute z-20 bg-DarkBg10 py-5 px-20 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" />
       <div className="flex flex-col justify-center items-center gap-10 w-full h-fit min-h-screen relative z-[18] pt-12 desktop:px-32 px-20 mobile:px-5">

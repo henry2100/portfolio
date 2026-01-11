@@ -31,7 +31,7 @@ const Projects = () => {
               <span className="text-sm mobile:text-xs text-Secondary">{item.technologies.join(", ")}</span>
             </div>
             <Carousel
-              containerStyle="!h-[40vh] mobile:!h-60 !min-h-[30vh] px-5 py-8 !p-0 !m-3 mobile:!m-0 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] !shadow-[0_35px_60px_-15px_Primary_Accents_lg] !border-[0px] rounded-lg cursor-pointer"
+              containerStyle="!h-[40vh] tablet:!h-56 px-5 py-8 !p-0 !m-3 mobile:!m-0 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] !shadow-[0_35px_60px_-15px_Primary_Accents_lg] !border-[0px] rounded-lg cursor-pointer"
               mainSectionStyle="!h-full rounded-lg overflow-hidden"
               images={item.projectImgs}
               leftBtn="!left-7"
