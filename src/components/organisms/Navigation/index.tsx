@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 type Props = {
     sectID?: string;
-    style?: string;
+    wrapperStyle?: string;
     logoImg?: string;
     sectionInView?: string;
 }
@@ -62,7 +62,7 @@ const TopNav: React.FC<Props> = (props) => {
     };
 
     return (
-        <div className={`${props.style} px-40 w-full flex justify-center items-center gap-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}>
+            <div className={`${props.wrapperStyle} px-40 w-full flex justify-center items-center gap-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}>
             <div className='w-full max-w-6xl flex justify-between items-center gap-10'>
                 <div
                     onMouseEnter={() => setOnLogoHover(true)}

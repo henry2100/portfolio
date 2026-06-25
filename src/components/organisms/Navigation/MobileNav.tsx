@@ -4,7 +4,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import NavModal from './NavModal';
 
 type Props = {
-    style?: string;
+    wrapperStyle?: string;
     logoImg?: string;
     floating?: boolean;
 }
@@ -14,7 +14,7 @@ const MobileNav = (props: Props) => {
 
     return (
         <>
-            <div className={`${props.style} !px-20 mobile:!px-5 w-full hidden justify-between items-center gap-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}>
+            <div className={`${props.wrapperStyle} !px-20 mobile:!px-5 w-full hidden justify-between items-center gap-10 shadow-[0_8px_30px_rgb(0,0,0,0.12)]`}>
                 <div className='min-w-1/4 w-fit nav_title_text text-xl text-white relative flex justify-center items-center gap-4'>
                     <span className='nav_title_text text-Primary cursor-pointer'>H@A</span>
                 </div>

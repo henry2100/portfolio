@@ -115,7 +115,7 @@ const Contact = () => {
 
           <SocialLinks
             containerStyle="bg-DarkBg3"
-            style="!border-none !py-4 mobile:!py-2 mobile:!px-5 !flex !justify-between w-full"
+            wrapperStyle="!border-none !py-4 mobile:!py-2 mobile:!px-5 !flex !justify-between w-full"
             iconStyle="!w-4 !h-4"
             social
           />
@@ -153,7 +153,7 @@ const Contact = () => {
               }
               inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
               inputStyle2="w-full !p-3 !border-none text-white"
-              style="w-1/2"
+              wrapperStyle="w-1/2"
             />
 
             <FormInput
@@ -168,7 +168,7 @@ const Contact = () => {
               }
               inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
               inputStyle2="w-full !p-3 !border-none text-white"
-              style="w-1/2"
+              wrapperStyle="w-1/2"
             />
           </div>
 
@@ -185,7 +185,7 @@ const Contact = () => {
               }
               inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
               inputStyle2="w-full !p-3 !border-none text-white"
-              style="w-1/2"
+              wrapperStyle="w-1/2"
             />
 
             <FormInput
@@ -202,7 +202,7 @@ const Contact = () => {
               }
               inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
               inputStyle2="w-full !p-3 !border-none text-white"
-              style="w-1/2"
+              wrapperStyle="w-1/2"
             />
           </div>
 
@@ -236,7 +236,7 @@ const Contact = () => {
             btnType="submit"
             btnText={loading ? "Sending..." : "Send message"}
             disableBtn={disableBtn}
-            btnStyle="bg-BackDrop_l_md py-3 rounded-md hover:!bg-Primary_Accents_lg hover:!text-white transition-all"
+            btnStyle="text-white bg-Primary_Accents_md py-3 rounded-md hover:!bg-Primary transition-all"
           />
         </form>
         </SlideRight>

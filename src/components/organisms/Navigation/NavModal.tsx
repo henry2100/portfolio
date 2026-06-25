@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import AppModal from '../CustomModal';
-import { useLocation } from 'react-router-dom';
 import { ToSnakeCase } from 'components/atoms/CaseManager';
 import navData from 'components/molecules/navData';
 import NavItem from 'components/atoms/NavItem';
@@ -13,29 +12,7 @@ interface NavModalProps {
 }
 
 const NavModal: React.FC<NavModalProps> = (props) => {
-    const [selected, setSelected] = useState('');
-    const location = useLocation();
-
-    const currentPath = location.pathname.split('/')[2];
     const { navItems } = navData();
-
-    const matchedNavItem = navItems.find(item => ToSnakeCase(item.navItem) === currentPath);
-
-    useEffect(() => {
-        if (matchedNavItem) {
-            const matched = ToSnakeCase(matchedNavItem.navItem);
-            setSelected(matched);
-        } else {
-            setSelected('home');
-        }
-    }, [currentPath, matchedNavItem]);
-
-    const handleNavItemClick = (e: React.MouseEvent, item: { available: boolean }) => {
-        if (!item.available) {
-            return;
-        }
-        setSelected((e.target as HTMLElement).dataset.name || '');
-    };
 
     const navItemFunc = (item: { newPage: boolean; navItem: string; action: (() => void) | null; style: string; icon1: string; icon2: string; available: boolean }, index: number) => {
         return (
@@ -50,7 +27,7 @@ const NavModal: React.FC<NavModalProps> = (props) => {
                 style={`${item.style}`}
                 active={ToSnakeCase(item.navItem) === ToSnakeCase(props.sectionInView || '')}
                 navLink={`/dashboard/${ToSnakeCase(item.navItem)}`}
-                onClick={(e) => handleNavItemClick(e, item)}
+                onClick={() => props.setModalState(false)}
                 action={item.action}
                 toNewPage={item.newPage}
                 floating={true}
@@ -77,7 +54,7 @@ const NavModal: React.FC<NavModalProps> = (props) => {
             </nav>
 
             <SocialLinks
-                style='!border-none !p-0'
+                wrapperStyle='!border-none !p-0'
                 iconWrapperStyle='!justify-evenly w-full'
                 iconStyle='!w-5 !h-5 !text-Primary'
                 social

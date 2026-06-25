@@ -35,7 +35,7 @@ const About = () => {
               itemIndex={i}
               {...item}
               imgStyle="!scale-100"
-              style="!h-[70vh] flex justify-center items-center rounded-xl overflow-hidden"
+              wrapperStyle="!h-[70vh] flex justify-center items-center rounded-xl overflow-hidden"
               overlayStyle="!bg-BackDrop_d_xl !flex !flex-col !justify-end !items-end"
               overlayContentLayout="!h-fit !w-full"
               overlayDescriptionLayout="!h-fit !w-full !flex !justify-end mobile:!justify-center items-center"

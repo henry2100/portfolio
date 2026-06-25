@@ -7,7 +7,7 @@ const SocialLinks = (props) => {
 
     return (
         <div className={`${props.containerStyle} flex justify-center items-center`}>
-            <div className={`${props.style} max-w-6xl desktop:border-t-2 desktop:border-Background pt-10 flex desktop:flex-row mobile:flex-col justify-between`}>
+            <div className={`${props.wrapperStyle} max-w-6xl desktop:border-t-2 desktop:border-Background pt-10 flex desktop:flex-row mobile:flex-col justify-between`}>
                 {props.contact &&
                     <span className={`${props.contactStyle} group flex desktop:flex-row mobile:flex-col gap-5 mobile:border-b-none mobile:border-Background mobile:py-4 mobile:justify-evenly`}>
                         <NavLink 

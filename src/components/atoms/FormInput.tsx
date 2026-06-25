@@ -8,7 +8,7 @@ type Props = {
   autoComplete?: "on" | "off",
   indicatorStyle?: string,
   placeholder?: string,
-  style?: string,
+  wrapperStyle?: string,
   inputStyle?: string,
   inputStyle2?: string,
   inputContainerStyle?: string,
@@ -45,7 +45,7 @@ const FormInput = React.forwardRef(({
   type,
   name,
   placeholder,
-  style,
+  wrapperStyle,
   inputStyle,
   inputStyle2,
   inputContainerStyle,
@@ -71,7 +71,7 @@ const FormInput = React.forwardRef(({
   )
 
   return (
-    <div className={`${darkMode ? '' : ''} ${style} flex flex-col`}>
+    <div className={`${darkMode ? '' : ''} ${wrapperStyle} flex flex-col`}>
       {label && <label className={`${labelStyle} ${darkMode ? 'text-Primary' : 'text-PrimaryActive'} mb-2`}>{label}</label>}
 
       <div className={`${inputContainerStyle} flex`}>

@@ -56,7 +56,7 @@ const Footer = () => {
 
                 <SocialLinks
                     containerStyle="bg-DarkBg3 border-t"
-                    style='!border-none !py-4 mobile:!py-2 mobile:!px-0 !flex mobile:!flex-col-reverse !justify-between w-full'
+                    wrapperStyle='!border-none !py-4 mobile:!py-2 mobile:!px-0 !flex mobile:!flex-col-reverse !justify-between w-full'
                     iconStyle='!w-4 !h-4'
                     policyStyle='mobile:!grid mobile:!grid-cols-2 mobile:!py-16'
                     contact

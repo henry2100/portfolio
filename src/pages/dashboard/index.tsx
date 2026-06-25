@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import TopNav from "components/organisms/Navigation";
-import Footer from "components/organisms/Footer";
+
 import Hero from "components/molecules/Hero";
 import MobileNav from "components/organisms/Navigation/MobileNav";
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
@@ -53,12 +53,10 @@ const Dashboard = () => {
 
         <Headroom>
           <TopNav
-            style={
-              "backdrop-blur-md !bg-BackDrop_d_sm hover:!bg-BackDrop_d_xl mobile:hidden fixed z-[25] top-5 left-0 right-0 mx-auto rounded-full py-5 !px-8 bg-white animate-fade_in transition ease-in-out duration-500 max-w-6xl w-full"
-            }
+            wrapperStyle="backdrop-blur-md !bg-BackDrop_d_sm hover:!bg-BackDrop_d_xl mobile:hidden fixed z-[25] top-5 left-0 right-0 mx-auto rounded-full py-5 !px-8 bg-white animate-fade_in transition ease-in-out duration-500 max-w-6xl w-full"
           />
           <MobileNav
-            style={"mobile:!flex fixed z-[25] top-0 w-full bg-DarkBg10 py-5"}
+            wrapperStyle="mobile:!flex fixed z-[25] top-0 w-full bg-DarkBg10 py-5"
           />
         </Headroom>
 

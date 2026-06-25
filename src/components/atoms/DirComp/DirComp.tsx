@@ -9,7 +9,7 @@ interface DirCardProps {
   titleStyle?: string;
   proficiency?: string;
   description?: string;
-  style?: string;
+  wrapperStyle?: string;
   overlayStyle?: string;
   overlayContentLayout?: string;
   overlayDescriptionLayout?: string;
@@ -27,7 +27,7 @@ const DirComp: React.FC<DirCardProps> = ({
   titleStyle,
   proficiency,
   description,
-  style,
+  wrapperStyle,
   overlayStyle,
   overlayContentLayout,
   overlayDescriptionLayout,
@@ -179,7 +179,7 @@ const DirComp: React.FC<DirCardProps> = ({
     <motion.div
       ref={containerRef}
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-      className={`relative group w-full h-56 overflow-hidden bg-DarkBg2 rounded-lg cursor-pointer ${style}`}
+      className={`relative group w-full h-56 overflow-hidden bg-DarkBg2 rounded-lg cursor-pointer ${wrapperStyle}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
