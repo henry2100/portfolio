@@ -80,22 +80,40 @@
   display: none;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1C1C1C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f46e5;
+}
+
+* {
+  scrollbar-color: #6366f1 #1C1C1C;
+  scrollbar-width: thin;
+}
+
 .skill_card:hover .custom_gradient {
   background: linear-gradient(
     90deg,
     #00000000 0%,
-    #00000003 1%,
-    #00000005 2%,
     #00000008 3%,
-    #0000000A 4%,   
-    #0000000D 5%,   
-    #0000001a 10%,   
-    #00000033 30%,     
-    #00000033 40%,     
-    #00000033 50%,     
-    #0000004d 70%,   
-    #0000004d 90%,     
-    #0000004d 100% 
+    #0000001a 10%,
+    #0000004d 30%,
+    #00000080 50%,
+    #000000b3 70%,
+    #000000cc 90%,
+    #000000e6 100%
   );
   transition: background 1s ease-in-out;
 }

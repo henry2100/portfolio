@@ -1,3 +1,0 @@
-export const LOGIN_STATUS = 'LOGIN_STATUS';
-export const AUTH_USER_RES = 'AUTH_USER_RES';
-export const RESET_AUTH_STATE = 'RESET_AUTH_STATE';

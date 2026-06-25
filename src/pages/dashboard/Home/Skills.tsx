@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL, getRequest } from "services/http";
-import Alert from "components/atoms/Alert";
+import React from "react";
 import DirComp from "components/atoms/DirComp/DirComp";
-import Spinner from "components/atoms/Spinner";
 import { skillData } from "../../../mockData/skillData";
+import { FadeUp, StaggerContainer, StaggerItem } from "components/atoms/MotionWrapper";
 
 const Skills = () => {
-  const [loading, setLoading] = useState(false);
-
   return (
     <div className="max-w-6xl w-full mobile:!p-5 tablet:p-8 flex flex-col gap-8 justify-start items-center">
-      <span className="text-left mobile:text-center font-bold text-5xl mobile:text-3xl text-Secondary tablet:text-Primary group-hover:text-Primary uppercase">
-        These are my skills
-      </span>
+      <FadeUp>
+        <span className="text-left mobile:text-center font-bold text-5xl mobile:text-3xl text-Secondary tablet:text-Primary group-hover:text-Primary uppercase">
+          These are my skills
+        </span>
+      </FadeUp>
 
-      <div
-        className={`py-10 w-full min-h-[50vh] grid grid-cols-4 tablet:grid-cols-2 justify-between items-start gap-12 mobile:gap-5`}
+      <StaggerContainer
+        className="py-10 w-full min-h-[50vh] grid grid-cols-4 tablet:grid-cols-2 mobile:grid-cols-2 justify-between items-start gap-12 mobile:gap-5"
+        staggerDelay={0.08}
       >
         {skillData.map((item) => (
-          <DirComp
-            key={item.id}
-            {...item}
-            titleStyle="mobile:!text-lg"
-            style="tablet:!h-auto max-h-[7rem]"
-            overlayDescriptionLayout="hidden"
-          />
+          <StaggerItem key={item.id}>
+            <DirComp
+              {...item}
+              titleStyle="mobile:!text-lg"
+              overlayDescriptionLayout=""
+            />
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerContainer>
     </div>
   );
 };

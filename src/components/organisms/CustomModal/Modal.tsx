@@ -16,7 +16,7 @@ const Modal: React.FC<Props> = ({ isOpen, children, modalStyle, contentStyle, cl
 
     return (
         <div className={`${modalStyle} fixed`}>
-            <div className={`${contentStyle} relative z-30 overflow-y-scroll custom_container`}>
+            <div className={`${contentStyle} relative z-30`}>
                 {onClose === undefined
                     ? null
                     : <FiX

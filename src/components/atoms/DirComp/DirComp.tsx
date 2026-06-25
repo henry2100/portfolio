@@ -1,181 +1,221 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-interface dirCardProps {
-  itemIndex: number
-  images?: string
-  imgStyle?: string
-  title?: string
-  titleStyle?: string
-  proficiency?: string
-  description?: string
-  style?: string
-  overlayStyle?: string
-  overlayContentLayout?: string
-  overlayDescriptionLayout?: string
-  children?: JSX.Element,
-  type?: 'card' | 'overlay' | undefined
+interface DirCardProps {
+  itemIndex?: number;
+  images?: string;
+  imgStyle?: string;
+  title?: string;
+  titleStyle?: string;
+  proficiency?: string;
+  description?: string;
+  style?: string;
+  overlayStyle?: string;
+  overlayContentLayout?: string;
+  overlayDescriptionLayout?: string;
+  children?: React.ReactNode;
+  type?: "card" | "overlay";
 }
 
-const DirComp: React.FC<dirCardProps> = ({ itemIndex, images, imgStyle, title, titleStyle, proficiency, description, style, overlayStyle, overlayContentLayout, overlayDescriptionLayout, children, type = 'card' }) => {
-  const containerRefs = useRef<HTMLDivElement[]>([]);
+type Edge = "left" | "right" | "top" | "bottom";
 
-  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    const container = containerRefs.current[index];
-    if (!container) return;
+const DirComp: React.FC<DirCardProps> = ({
+  itemIndex = 0,
+  images,
+  imgStyle,
+  title,
+  titleStyle,
+  proficiency,
+  description,
+  style,
+  overlayStyle,
+  overlayContentLayout,
+  overlayDescriptionLayout,
+  children,
+  type = "card",
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [enterEdge, setEnterEdge] = useState<Edge>("top");
 
-    const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const edge = closestEdge(x, y, rect.width, rect.height);
+  // For 3D tilt effect
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), { stiffness: 300, damping: 30 });
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), { stiffness: 300, damping: 30 });
 
-    const overlay = container.querySelector(".overlay") as HTMLElement;
-    if (!overlay) return;
+  const getEdgeFromPosition = (
+    mouseX: number,
+    mouseY: number,
+    width: number,
+    height: number
+  ): Edge => {
+    const topDist = mouseY;
+    const bottomDist = height - mouseY;
+    const leftDist = mouseX;
+    const rightDist = width - mouseX;
+    const min = Math.min(topDist, bottomDist, leftDist, rightDist);
 
-    switch (edge) {
-      case "left":
-        overlay.style.transform = "translateX(-100%)";
-        break;
-      case "right":
-        overlay.style.transform = "translateX(100%)";
-        break;
-      case "top":
-        overlay.style.transform = "translateY(-100%)";
-        break;
-      case "bottom":
-        overlay.style.transform = "translateY(100%)";
-        break;
-    }
-
-    requestAnimationFrame(() => {
-      overlay.style.transition = "transform 0.5s ease, opacity 0.5s ease";
-      overlay.style.transform = "translate(0, 0)";
-      overlay.style.opacity = "1";
-    });
+    if (min === topDist) return "top";
+    if (min === bottomDist) return "bottom";
+    if (min === leftDist) return "left";
+    return "right";
   };
 
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>, index: number) => {
-    const container = containerRefs.current[index];
-    if (!container) return;
-
-    const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const edge = closestEdge(x, y, rect.width, rect.height);
-
-    const overlay = container.querySelector(".overlay") as HTMLElement;
-    if (!overlay) return;
-
-    overlay.style.opacity = "0";
+  const getInitialPosition = (edge: Edge) => {
     switch (edge) {
-      case "left":
-        overlay.style.transform = "translateX(-100%)";
-        break;
-      case "right":
-        overlay.style.transform = "translateX(100%)";
-        break;
-      case "top":
-        overlay.style.transform = "translateY(-100%)";
-        break;
-      case "bottom":
-        overlay.style.transform = "translateY(100%)";
-        break;
+      case "top": return { x: 0, y: -100 };
+      case "bottom": return { x: 0, y: 100 };
+      case "left": return { x: -100, y: 0 };
+      case "right": return { x: 100, y: 0 };
     }
   };
 
-  const displayCard = (
-    <div
-      ref={(el) => {
-        if (el) containerRefs.current[itemIndex] = el;
-      }}
-      className={`relative group w-full h-56 overflow-hidden bg-DarkBg2 rounded-lg cursor-pointer ${style}`}
-      onMouseEnter={(e) => handleMouseEnter(e, itemIndex)}
-      onMouseLeave={(e) => handleMouseLeave(e, itemIndex)}
-    >
-      <img className={`${imgStyle} w-full h-full object-cover transition-transform duration-500 scale-110 group-hover:scale-125`} src={images} alt={`Image ${itemIndex + 1}`} />
-      <img className={`${imgStyle} absolute right-3 top-[10%] flex desktop:hidden mobile:hidden w-28 h-28 object-cover transition-transform duration-500 scale-110 group-hover:scale-125`} src={images} alt={`Image ${itemIndex + 1}`} />
-      <div
-        className={`overlay absolute inset-0 bg-black/70 text-white flex items-center justify-center opacity-0 transition-all duration-500 p-5 ${overlayStyle}`}
-        style={{ transform: "translate(0, 0)" }}
-      >
-        <span className={`w-full h-full flex flex-col items-start justify-between mobile:items-center mobile:justify-center mobile:gap-1 ${overlayContentLayout}`}>
-          <h3 className={`text-xl font-bold group-hover:text-2xl text-Secondary group-hover:text-Primary leading-8 transition ease-in-out duration-500 ${titleStyle}`}>{title}</h3>
-          <div className='flex flex-col gap-1'>
-            <p className='font-normal text-sm text-gray-600 group-hover:text-white my-1 transition ease-in-out duration-500'>{proficiency}</p>
-            <span className='border-b border-black group-hover:border-Primary min-w-[25px] group-hover:min-w-[50px] transition ease-in-out duration-500'></span>
-          </div>
-        </span>
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const edge = getEdgeFromPosition(mouseX, mouseY, rect.width, rect.height);
+    setEnterEdge(edge);
+    setIsHovered(true);
+  };
 
-        <span className={`${overlayDescriptionLayout} w-full text-sm font-normal text-gray-800 group-hover:text-white transition ease-in-out duration-500 max-w-[200px] text-right`}>
-          {description}
-        </span>
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const edge = getEdgeFromPosition(mouseX, mouseY, rect.width, rect.height);
+    setEnterEdge(edge);
+    setIsHovered(false);
+    x.set(0);
+    y.set(0);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    x.set((mouseX - centerX) / rect.width);
+    y.set((mouseY - centerY) / rect.height);
+  };
+
+  const initialPos = getInitialPosition(enterEdge);
+
+  const overlayVariants = {
+    hidden: {
+      x: `${initialPos.x}%`,
+      y: `${initialPos.y}%`,
+      opacity: 0,
+    },
+    visible: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 35,
+      },
+    },
+    exit: {
+      x: `${initialPos.x}%`,
+      y: `${initialPos.y}%`,
+      opacity: 0,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 35,
+      },
+    },
+  };
+
+  const OverlayContent = () => (
+    <div className="w-full h-full flex flex-col items-center justify-center p-4 mobile:p-2 gap-3 mobile:gap-1.5">
+      <div className={`w-full flex flex-col items-center justify-center gap-1 ${overlayContentLayout}`}>
+        <motion.h3
+          initial={{ y: 20, opacity: 0 }}
+          animate={isHovered ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+          transition={{ delay: 0.1, duration: 0.3 }}
+          className={`text-xl font-bold text-Primary leading-8 text-center ${titleStyle}`}
+        >
+          {title}
+        </motion.h3>
+        <motion.span
+          initial={{ width: 25 }}
+          animate={isHovered ? { width: 50 } : { width: 25 }}
+          transition={{ duration: 0.3 }}
+          className="border-b border-Primary"
+        />
+        <motion.p
+          initial={{ y: 20, opacity: 0 }}
+          animate={isHovered ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+          transition={{ delay: 0.15, duration: 0.3 }}
+          className="font-normal text-xs uppercase tracking-wider text-gray-400"
+        >
+          {proficiency}
+        </motion.p>
       </div>
+
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={isHovered ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+        transition={{ delay: 0.2, duration: 0.3 }}
+        className="flex items-start gap-3 mobile:gap-2 w-full max-w-[220px] mobile:max-w-full mx-auto"
+      >
+        <img src={images} alt={title} className="w-6 h-6 mobile:w-4 mobile:h-4 object-contain flex-shrink-0 mt-0.5" />
+        <p className={`${overlayDescriptionLayout} text-sm mobile:text-[11px] leading-relaxed mobile:leading-snug text-gray-200 text-left`}>
+          {description}
+        </p>
+      </motion.div>
     </div>
   );
 
-  const displayCard_Overlay = (
-    <div
-      ref={(el) => {
-        if (el) containerRefs.current[itemIndex] = el;
-      }}
+  return (
+    <motion.div
+      ref={containerRef}
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
       className={`relative group w-full h-56 overflow-hidden bg-DarkBg2 rounded-lg cursor-pointer ${style}`}
-      onMouseEnter={(e) => handleMouseEnter(e, itemIndex)}
-      onMouseLeave={(e) => handleMouseLeave(e, itemIndex)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.2 }}
     >
-      {children}
+      {type === "card" ? (
+        <>
+          <motion.img
+            className={`${imgStyle} w-full h-full object-cover`}
+            src={images}
+            alt={`Image ${itemIndex + 1}`}
+            initial={{ scale: 1.1 }}
+            animate={{ scale: isHovered ? 1.15 : 1.1 }}
+            transition={{ duration: 0.5 }}
+          />
+          <img
+            className={`${imgStyle} absolute right-3 top-[10%] flex desktop:hidden mobile:hidden w-28 h-28 object-cover transition-transform duration-500 scale-110 group-hover:scale-125`}
+            src={images}
+            alt={`Image ${itemIndex + 1}`}
+          />
+        </>
+      ) : (
+        children
+      )}
 
-      <div
-        className={`overlay absolute inset-0 bg-black/70 text-white flex items-center justify-center opacity-0 transition-all duration-500 p-5 ${overlayStyle}`}
-        style={{ transform: "translate(0, 0)" }}
+      <motion.div
+        className={`overlay absolute inset-0 bg-black/90 backdrop-blur-sm text-white p-5 ${overlayStyle}`}
+        variants={overlayVariants}
+        initial="hidden"
+        animate={isHovered ? "visible" : "exit"}
       >
-        <span className={`w-full h-full flex flex-col items-start justify-between mobile:items-center mobile:justify-center mobile:gap-1 ${overlayContentLayout}`}>
-          <h3 className={`text-xl font-bold group-hover:text-2xl text-Secondary group-hover:text-Primary leading-8 transition ease-in-out duration-500 ${titleStyle}`}>{title}</h3>
-          <div className='flex flex-col gap-1'>
-            <p className='font-normal text-sm text-gray-600 group-hover:text-white my-1 transition ease-in-out duration-500'>{proficiency}</p>
-            <span className='border-b border-black group-hover:border-Primary min-w-[25px] group-hover:min-w-[50px] transition ease-in-out duration-500'></span>
-          </div>
-        </span>
-
-        <span className={`${overlayDescriptionLayout} w-full text-sm font-normal text-gray-800 group-hover:text-white transition ease-in-out duration-500 max-w-[200px] text-right`}>
-          {description}
-        </span>
-
-
-      </div>
-    </div>
+        <OverlayContent />
+      </motion.div>
+    </motion.div>
   );
-
-  const displayContent = type === 'card'
-    ? displayCard
-    : displayCard_Overlay
-
-  return displayContent;
 };
-
-// Helper Functions
-function closestEdge(x: number, y: number, w: number, h: number) {
-  const topEdgeDist = distMetric(x, y, w / 2, 0);
-  const bottomEdgeDist = distMetric(x, y, w / 2, h);
-  const leftEdgeDist = distMetric(x, y, 0, h / 2);
-  const rightEdgeDist = distMetric(x, y, w, h / 2);
-  const min = Math.min(topEdgeDist, bottomEdgeDist, leftEdgeDist, rightEdgeDist);
-  switch (min) {
-    case leftEdgeDist:
-      return "left";
-    case rightEdgeDist:
-      return "right";
-    case topEdgeDist:
-      return "top";
-    case bottomEdgeDist:
-      return "bottom";
-    default:
-      return "top";
-  }
-}
-
-function distMetric(x: number, y: number, x2: number, y2: number) {
-  const xDiff = x - x2;
-  const yDiff = y - y2;
-  return xDiff * xDiff + yDiff * yDiff;
-}
 
 export default DirComp;

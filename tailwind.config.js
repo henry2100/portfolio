@@ -6,7 +6,7 @@ module.exports = {
       //Custom Queries//
       mobile: { min: "200px", max: "600px" },
 
-      tablet: { mim: "601px", max: "1199px" },
+      tablet: { min: "601px", max: "1199px" },
 
       desktop: { min: "1200px" },
     },

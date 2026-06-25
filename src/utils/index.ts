@@ -1,16 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import _ from 'lodash';
 import Alert from 'components/atoms/Alert';
-import { removeValues, setValues } from 'services/storage';
-import { BASE_URL, getRequest, postRequest } from '../services/http';
-import { getValues } from '../services/storage';
-// import { store } from '../redux/store';
 import { StatusType } from 'types';
-// import { resetAppState } from '../redux_/app/app.action';
-// import { resetAuthState, setLoginStatus } from '../redux_/auth/auth.action';
-
-import { store } from '../redux/store'
+import { store } from '../redux/store';
 
 const state = store.getState();
 const darkMode =  state.app.darkMode;

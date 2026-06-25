@@ -17,8 +17,9 @@ export const projectsData = [
         technologies: [
             'Mongo DB', 'Express Js', 'React Js', 'Node Js', 'Typescript', 'TailwindCSS', 'Redux', 'Axios'
         ],
-        projectDesc: "Nulla excepteur mollit dolor nulla proident labore aliqua fugiat in labore consequat dolor.",
-        projectLink: "https://vercel.com/henrys-projects-76c8c93c/ecommerce-client#:~:text=ecommerce%2Dclient%2Drosy.vercel.app"
+        projectDesc: "A full-featured e-commerce platform with product listings, shopping cart, user authentication, and secure checkout built with the MERN stack.",
+        projectLink: "https://ecommerce-client-rosy.vercel.app",
+        projStatus: true
     },
     {
         title: 'Asoebi By Nandari',
@@ -41,8 +42,9 @@ export const projectsData = [
         technologies: [
             'Mongo DB', 'Express Js', 'React Js', 'Node Js', 'Typescript', 'TailwindCSS', 'Redux', 'Axios'
         ],
-        projectDesc: "Nulla excepteur mollit dolor nulla proident labore aliqua fugiat in labore consequat dolor.",
-        projectLink: "https://www.nandari.com"
+        projectDesc: "An elegant marketplace for African fashion and asoebi styles, enabling users to browse, select, and order traditional attire with a seamless experience.",
+        projectLink: "https://www.nandari.com",
+        projStatus: true
     },
     {
         title: 'Panthera',
@@ -61,7 +63,8 @@ export const projectsData = [
         technologies: [
             'Mongo DB', 'Express Js', 'React Js', 'Node Js', 'Typescript', 'TailwindCSS', 'Redux', 'Axios'
         ],
-        projectDesc: "Nulla excepteur mollit dolor nulla proident labore aliqua fugiat in labore consequat dolor.",
-        projectLink: "https://www.pantheraicl.com"
+        projectDesc: "A sleek single-page brand showcase for Panthera, featuring modern design, smooth animations, and responsive layouts across all devices.",
+        projectLink: "https://www.pantheraicl.com",
+        projStatus: false
     }
 ];

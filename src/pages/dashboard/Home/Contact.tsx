@@ -9,6 +9,7 @@ import { inputAlpha, inputNum, validteEmail } from "utils";
 import Alert from "components/atoms/Alert";
 import emailjs from "@emailjs/browser";
 import SuccessState from "components/atoms/AnimatedSuccess";
+import { FadeUp, SlideLeft, SlideRight } from "components/atoms/MotionWrapper";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -101,40 +102,43 @@ const Contact = () => {
 
   return (
     <div className="max-w-6xl w-full mobile:!p-5 tablet:p-8">
-      <div className="flex mobile:flex-col gap-8 justify-between">
-        <div>
-          <h1 className="text-left mobile:text-center font-bold text-5xl mobile:text-3xl text-Secondary tablet:text-Primary group-hover:text-Primary uppercase">
-            Contact Me
-          </h1>
-          <p className="text-sm mobile:text-xs text-GrayCustom">
-            You can reach out using the form below or via my social platforms.
-          </p>
-        </div>
+      <FadeUp>
+        <div className="flex mobile:flex-col gap-8 justify-between">
+          <div>
+            <h1 className="text-left mobile:text-center font-bold text-5xl mobile:text-3xl text-Secondary tablet:text-Primary group-hover:text-Primary uppercase">
+              Contact Me
+            </h1>
+            <p className="text-sm mobile:text-xs text-GrayCustom">
+              You can reach out using the form below or via my social platforms.
+            </p>
+          </div>
 
-        <SocialLinks
-          containerStyle="bg-DarkBg3"
-          style="!border-none !py-4 mobile:!py-2 mobile:!px-5 !flex !justify-between w-full"
-          iconStyle="!w-4 !h-4"
-          social
-        />
-      </div>
+          <SocialLinks
+            containerStyle="bg-DarkBg3"
+            style="!border-none !py-4 mobile:!py-2 mobile:!px-5 !flex !justify-between w-full"
+            iconStyle="!w-4 !h-4"
+            social
+          />
+        </div>
+      </FadeUp>
 
       {/* Content */}
       <div className="bg-NoColor flex mobile:flex-col mt-5 gap-5 overflow-hidden shadow-lg rounded-xl">
         {/* Image */}
-        <div className="w-1/2 mobile:w-full max-h-[60vh] overflow-hidden">
+        <SlideLeft delay={0.2} className="w-1/2 mobile:w-full max-h-[60vh] overflow-hidden">
           <img
             src={contactStockImg}
             alt="contact"
             className="w-full h-full object-cover opacity-70"
           />
-        </div>
+        </SlideLeft>
 
         {/* Form */}
+        <SlideRight delay={0.3} className="w-1/2 mobile:w-full">
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="w-1/2 mobile:w-full flex flex-col gap-5 p-5"
+          className="w-full flex flex-col gap-5 p-5"
         >
           <div className="flex gap-3">
             <FormInput
@@ -235,6 +239,7 @@ const Contact = () => {
             btnStyle="bg-BackDrop_l_md py-3 rounded-md hover:!bg-Primary_Accents_lg hover:!text-white transition-all"
           />
         </form>
+        </SlideRight>
       </div>
     </div>
   );

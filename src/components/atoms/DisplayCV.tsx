@@ -19,21 +19,21 @@ const DocumentViewer: React.FC<DocumentViewerProps> = ({ fileUrl, fileName, clos
 
     return (
         <AppModal
-            modalStyle={`bg-DarkBg10 w-full max-w-4xl mobile:w-[90%] h-fit max-h-[80vh] mobile:min-h-[30vh] overflow-y-scroll z-30 right-0 left-0 top-24 mobile:top-16 mobile:right-0 mobile:left-0 mx-auto animate-slide_down2 mobile:animate-fade_in rounded-xl mobile:rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition ease-in-out duration-500`}
+            modalStyle={`bg-DarkBg10 w-full max-w-4xl mobile:w-[90%] h-fit max-h-[90vh] mobile:min-h-[30vh] z-30 right-0 left-0 top-24 mobile:top-16 mobile:right-0 mobile:left-0 mx-auto animate-slide_down2 mobile:animate-fade_in rounded-xl mobile:rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition ease-in-out duration-500`}
             backDropStyle='!bg-BackDrop_d_xl'
-            contentStyle="h-fit min-h-[40vh] mobile:min-h-[30vh] p-5 flex flex-col justify-evenly gap-5"
+            contentStyle="h-fit min-h-[40vh] mobile:min-h-[30vh] p-5 flex flex-col gap-5"
             closeBtnStyle='text-Primary hidden'
         >
-            <div className="document-viewer">
-                <div className="relative w-full aspect-[16/12] mobile:aspect-[16/24]">
+            <div className="document-viewer flex flex-col h-full">
+                <div className="relative w-full desktop:h-[65vh] tablet:h-[55vh] mobile:h-[50vh] min-h-[300px] mobile:min-h-[250px]">
                     <iframe
                         src={fileUrl}
-                        className="absolute top-0 left-0 right-0 mx-auto w-full h-full"
+                        className="absolute inset-0 w-full h-full"
                         allowFullScreen
                     />
                 </div>
 
-                <div className='flex justify-end mobile:justify-between items-center gap-10 mt-5'>
+                <div className='flex justify-end mobile:justify-between items-center gap-10 mt-5 flex-shrink-0'>
                     <Button
                         btnType='submit'
                         btnText='Close'

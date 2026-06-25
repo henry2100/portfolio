@@ -4,37 +4,37 @@ export const skillData_ = [
     skillIcon: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg`,
     name: "React js",
     level: "intermediate",
-    desc: "Dolor sint non eu excepteur anim aute fugiat sint duis velit sint enim.",
+    desc: "Building dynamic user interfaces with reusable components and efficient state management.",
   },
   {
     skillIcon: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg`,
     name: "Node js",
     level: "intermediate",
-    desc: "Laboris nisi dolor dolore eu dolor cillum nisi exercitation minim amet.",
+    desc: "Server-side runtime for building fast, scalable network applications.",
   },
   {
     skillIcon: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg`,
     name: "TypeScript",
     level: "intermediate",
-    desc: "Anim non mollit tempor in ullamco cupidatat in ad cupidatat.",
+    desc: "Type-safe JavaScript for building robust, maintainable codebases.",
   },
   {
     skillIcon: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg`,
     name: "Tailwind CSS",
     level: "intermediate",
-    desc: "Anim non mollit tempor in ullamco cupidatat in ad cupidatat.",
+    desc: "Utility-first CSS framework for rapid, custom UI development.",
   },
   {
     skillIcon: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg`,
     name: "MongoDB",
     level: "intermediate",
-    desc: "Nisi dolor dolore eu dolor cillum nisi exercitati ullamco cupidatat in ad cupidatat.",
+    desc: "NoSQL database for flexible, document-oriented data storage.",
   },
   {
     skillIcon: `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg`,
     name: "MySQL",
     level: "intermediate",
-    desc: "Anim non mollit tempor in ullamco cupidatat in ad cupidatat.",
+    desc: "Relational database management system for structured data.",
   },
 ];
 
@@ -44,7 +44,7 @@ export const skillData = [
     title: "CSS",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Styling web pages with cascading stylesheets for responsive, visually appealing designs.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
     createdAt: "2025-01-13T16:20:24.576+00:00",
@@ -55,7 +55,7 @@ export const skillData = [
     title: "Next Js",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "React framework for production-grade server-side rendering and static site generation.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
     createdAt: "2025-01-13T16:29:46.170+00:00",
@@ -66,7 +66,7 @@ export const skillData = [
     title: "Redux",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Predictable state container for consistent and maintainable JavaScript application behavior.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
     createdAt: "2025-01-14T15:41:18.200+00:00",
@@ -77,7 +77,7 @@ export const skillData = [
     title: "PHP",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Server-side scripting language for dynamic web application and backend development.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
     createdAt: "2025-01-14T16:00:04.856+00:00",
@@ -88,7 +88,7 @@ export const skillData = [
     title: "Git",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Distributed version control system for tracking changes and collaborating on code.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain-wordmark.svg",
     createdAt: "2025-01-14T16:03:29.819+00:00",
@@ -98,7 +98,7 @@ export const skillData = [
     _id: "67734183f70b6164915a6b4d",
     title: "Tailwind CSS",
     proficiency: "intermediate",
-    description: "Anim non mollit tempor in ullamco cupidatat in ad cupidatat.",
+    description: "Utility-first CSS framework for rapid, custom UI development with ease.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
     createdAt: "2024-12-31T00:57:39.936+00:00",
@@ -109,7 +109,7 @@ export const skillData = [
     title: "MySQL",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Relational database for structured data management and complex query operations.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
     createdAt: "2024-12-31T00:59:20.951+00:00",
@@ -120,7 +120,7 @@ export const skillData = [
     title: "JavaScript",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Versatile programming language powering dynamic web and server-side applications.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
     createdAt: "2025-01-13T16:27:24.682+00:00",
@@ -131,7 +131,7 @@ export const skillData = [
     title: "React Js",
     proficiency: "intermediate",
     description:
-      "Dolor sint non eu excepteur anim aute fugiat sint duis velit sint enim…",
+      "Building interactive user interfaces with a component-based architecture and virtual DOM.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
     createdAt: "2024-12-31T00:53:27.101+00:00",
@@ -142,7 +142,7 @@ export const skillData = [
     title: "SASS",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "CSS preprocessor extending stylesheets with variables, mixins, and nested rules.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg",
     createdAt: "2025-01-13T16:25:54.491+00:00",
@@ -153,7 +153,7 @@ export const skillData = [
     title: "Axios",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Promise-based HTTP client for seamless API communication in browser and Node.js.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg",
     createdAt: "2025-01-14T15:58:28.866+00:00",
@@ -164,7 +164,7 @@ export const skillData = [
     title: "Node js",
     proficiency: "intermediate",
     description:
-      "Laboris nisi dolor dolore eu dolor cillum nisi exercitation minim amet…",
+      "JavaScript runtime for building scalable and high-performance server-side applications.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
     createdAt: "2024-12-31T00:55:52.211+00:00",
@@ -174,7 +174,7 @@ export const skillData = [
     _id: "67734153f70b6164915a6b4b",
     title: "TypeScript",
     proficiency: "intermediate",
-    description: "Anim non mollit tempor in ullamco cupidatat in ad cupidatat.",
+    description: "Typed superset of JavaScript for improved tooling, scalability, and reliability.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
     createdAt: "2024-12-31T00:56:51.695+00:00",
@@ -185,7 +185,7 @@ export const skillData = [
     title: "MongoDB",
     proficiency: "intermediate",
     description:
-      "Nisi dolor dolore eu dolor cillum nisi exercitati ullamco cupidatat in…",
+      "Flexible NoSQL database for scalable, document-oriented data storage and retrieval.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
     createdAt: "2024-12-31T00:58:25.064+00:00",
@@ -196,7 +196,7 @@ export const skillData = [
     title: "HTML",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "Standard markup language for structuring content and layouts on the web.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
     createdAt: "2025-01-13T16:19:21.595+00:00",
@@ -207,7 +207,7 @@ export const skillData = [
     title: "Python",
     proficiency: "intermediate",
     description:
-      "Anim non mollit tempor in ullamco cupidatat in ad cupidatat nand cupid…",
+      "High-level programming language known for readability and versatility across domains.",
     images: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg",
     createdAt: "2025-01-14T16:02:21.748+00:00",
     updatedAt: "2025-01-14T16:02:21.748+00:00",

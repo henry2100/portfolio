@@ -1,70 +1,121 @@
 import React, { useState, useEffect } from 'react';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface CarouselData {
-    containerStyle?: String,
-    mainSectionStyle?: String,
-    carouselBtnStyle?: String,
-    images: any[],
-    autoSlide?: boolean,
-    autoSlideInterval?: any,
-    leftBtn?: string,
-    rightBtn?: string
+    containerStyle?: string;
+    mainSectionStyle?: string;
+    carouselBtnStyle?: string;
+    images: string[];
+    autoSlide?: boolean;
+    autoSlideInterval?: number;
+    leftBtn?: string;
+    rightBtn?: string;
 }
 
-const Carousel = ({ containerStyle, mainSectionStyle, images, carouselBtnStyle, autoSlide = true, autoSlideInterval = 3000, leftBtn, rightBtn }: CarouselData) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+const slideVariants = {
+    enter: (direction: number) => ({
+        x: direction > 0 ? 300 : -300,
+        opacity: 0,
+        scale: 0.95,
+    }),
+    center: {
+        zIndex: 1,
+        x: 0,
+        opacity: 1,
+        scale: 1,
+    },
+    exit: (direction: number) => ({
+        zIndex: 0,
+        x: direction < 0 ? 300 : -300,
+        opacity: 0,
+        scale: 0.95,
+    }),
+};
+
+const Carousel = ({
+    containerStyle,
+    mainSectionStyle,
+    images,
+    carouselBtnStyle,
+    autoSlide = true,
+    autoSlideInterval = 3000,
+    leftBtn,
+    rightBtn
+}: CarouselData) => {
+    const [[currentIndex, direction], setSlide] = useState([0, 0]);
 
     useEffect(() => {
         if (autoSlide) {
             const slideInterval = setInterval(() => {
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+                setSlide(([prev]) => [(prev + 1) % images.length, 1]);
             }, autoSlideInterval);
             return () => clearInterval(slideInterval);
         }
     }, [autoSlide, autoSlideInterval, images.length]);
 
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setSlide(([prev]) => [(prev + 1) % images.length, 1]);
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+        setSlide(([prev]) => [(prev - 1 + images.length) % images.length, -1]);
+    };
+
+    const goToSlide = (index: number) => {
+        setSlide(([prev]) => [index, index > prev ? 1 : -1]);
     };
 
     return (
-        <div className={`${containerStyle} relative overflow-visible w-full mx-auto`}>
-            <div className={`${mainSectionStyle} relative h-64`}>
-                {images.map((image, index) => (
-                    <div
-                        key={index}
-                        className={`absolute inset-0 transition-transform transform ${index === currentIndex ? 'translate-x-0' : 'translate-x-full'
-                            }`}
-                    >
-                        <img src={image} alt={`Slide ${index}`} className="w-full h-full object-cover" />
-                    </div>
-                ))}
+        <div className={`${containerStyle} relative overflow-visible w-full mx-auto !m-0`}>
+            <div className={`${mainSectionStyle} relative overflow-hidden`}>
+                <AnimatePresence initial={false} custom={direction}>
+                    <motion.img
+                        key={currentIndex}
+                        custom={direction}
+                        variants={slideVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                            x: { type: "spring", stiffness: 300, damping: 30 },
+                            opacity: { duration: 0.3 },
+                            scale: { duration: 0.3 },
+                        }}
+                        src={images[currentIndex]}
+                        alt={`Slide ${currentIndex}`}
+                        className="absolute inset-0 w-full h-full object-cover"
+                    />
+                </AnimatePresence>
             </div>
-            
-            <button
-                className={`${carouselBtnStyle} ${leftBtn} absolute top-1/2 -left-20 tablet:left-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center`}
+
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`${carouselBtnStyle} ${leftBtn} absolute top-1/2 -left-20 tablet:left-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center transition-colors`}
                 onClick={prevSlide}
             >
                 <IoIosArrowBack />
-            </button>
-            <button
-                className={`${carouselBtnStyle} ${rightBtn} absolute top-1/2 -right-20 tablet:right-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center`}
+            </motion.button>
+            <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                className={`${carouselBtnStyle} ${rightBtn} absolute top-1/2 -right-20 tablet:right-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center transition-colors`}
                 onClick={nextSlide}
             >
                 <IoIosArrowForward />
-            </button>
+            </motion.button>
             <div className="absolute -bottom-10 left-0 right-0 flex justify-center mb-4 gap-1">
                 {images.map((_, i) => (
-                    <div
+                    <motion.div
                         key={i}
-                        className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${currentIndex === i ? "w-8 bg-Primary" : "w-4 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md"
-                            }`}
-                        onClick={() => setCurrentIndex(i)}
+                        animate={{
+                            width: currentIndex === i ? 32 : 16,
+                            backgroundColor: currentIndex === i ? "#6366f1" : "rgba(255,255,255,0.3)",
+                        }}
+                        transition={{ duration: 0.3 }}
+                        className="h-1 cursor-pointer rounded-2xl"
+                        onClick={() => goToSlide(i)}
                     />
                 ))}
             </div>
