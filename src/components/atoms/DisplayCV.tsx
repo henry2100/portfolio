@@ -28,6 +28,7 @@ const DocumentViewer: React.FC<DocumentViewerProps> = ({ fileUrl, fileName, clos
                 <div className="relative w-full desktop:h-[65vh] tablet:h-[55vh] mobile:h-[50vh] min-h-[300px] mobile:min-h-[250px]">
                     <iframe
                         src={fileUrl}
+                        title="Resume preview"
                         className="absolute inset-0 w-full h-full"
                         allowFullScreen
                     />

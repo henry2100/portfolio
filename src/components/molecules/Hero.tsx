@@ -74,7 +74,7 @@ const Hero = () => {
           animate="visible"
         >
           <div className="w-fit mobile:w-full flex flex-col justify-start items-start gap-8 mobile:gap-12">
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants}> 
               <PageHeader
                 pageTitle={"Henry Ebose Adedugba"}
                 pageTitleStyle="font-[800] text-6xl mobile:text-3xl text-Primary"

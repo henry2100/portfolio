@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import SocialLinks from './SocialLinks';
 import Button from 'components/atoms/Button';
-import { inputAlpha, inputEmail, inputNum } from 'utils';
-import FormTextArea from 'components/atoms/FormTextArea';
-import { CiEdit } from "react-icons/ci";
 import DocumentViewer from 'components/atoms/DisplayCV';
 import myResumeDoc from '../../../assets/pdf/henry_adedugba_cv.pdf';
 

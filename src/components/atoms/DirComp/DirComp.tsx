@@ -199,7 +199,7 @@ const DirComp: React.FC<DirCardProps> = ({
           <img
             className={`${imgStyle} absolute right-3 top-[10%] flex desktop:hidden mobile:hidden w-28 h-28 object-cover transition-transform duration-500 scale-110 group-hover:scale-125`}
             src={images}
-            alt={`Image ${itemIndex + 1}`}
+            alt=""
           />
         </>
       ) : (

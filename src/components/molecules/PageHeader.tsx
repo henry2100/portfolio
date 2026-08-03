@@ -64,6 +64,7 @@ const PageHeader = ({
       {hyperLinkBtn && (
         <a
           target="_blank"
+          rel="noreferrer"
           href={hyperLinkBtn}
           className={`${headerBtnStyle} hover:!bg-softBlack hover:!text-white underline-none text-center whitespace-nowrap`}
         >
