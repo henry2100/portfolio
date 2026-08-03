@@ -1,4 +1,3 @@
-import React from "react";
 import { Link as ScrollLink } from "react-scroll";
 import TopNav from "components/organisms/Navigation";
 import bgImg2 from "../../assets/images/stock_img_2.jpg";
@@ -45,7 +44,7 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <TopNav wrapperStyle="!flex mobile:!hidden absolute z-20 bg-DarkBg10 py-5 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" />
+      <TopNav wrapperStyle="!flex mobile:!hidden absolute z-20 py-5 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" />
       <MobileNav wrapperStyle="!hidden mobile:!flex absolute z-20 bg-DarkBg10 py-5 px-20 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" />
       <div className="flex flex-col justify-center items-center gap-10 w-full h-fit min-h-screen relative z-[18] pt-12 desktop:px-32 px-20 mobile:px-5">
         <div id="end"></div>

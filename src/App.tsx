@@ -1,4 +1,3 @@
-import React from 'react';
 import AppRouter from './route';
 import { Toaster } from 'react-hot-toast';
 

@@ -1,4 +1,3 @@
-import React from "react";
 import DirComp from "components/atoms/DirComp/DirComp";
 import { skillData } from "../../../mockData/skillData";
 import { FadeUp, StaggerContainer, StaggerItem } from "components/atoms/MotionWrapper";

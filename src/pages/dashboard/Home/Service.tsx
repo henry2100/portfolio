@@ -1,4 +1,3 @@
-import React from "react";
 import {servicesData} from "../../../mockData/servicesData";
 import ServiceCard from "../../../components/molecules/ServiceCard";
 import { FadeUp, StaggerContainer, StaggerItem } from "components/atoms/MotionWrapper";

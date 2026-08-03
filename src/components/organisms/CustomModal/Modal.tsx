@@ -1,8 +1,6 @@
 import React from 'react';
 import { FiX } from "react-icons/fi";
 
-import closeIcon from '../../../assets/svg/close-circle-solid.svg';
-
 type Props = {
     isOpen: boolean,
     children: JSX.Element,

@@ -58,8 +58,6 @@ export default SkillCard;
 
 
 export const SkillCard_dark = ({ images, title, proficiency, description }: skillCardProps) => {
-    const [showInfo, setShowInfo] = useState(false);
-
     return (
         <div className='group bg-DarkBg2 p-2 h-[200px] flex-shrink-0 rounded-lg group relative z-10 transition ease-in-out duration-500 overflow-hidden cursor-pointer'>
             <div className='relative z-10 left-0 right-0 mx-auto w-4/5 h-full max-h-[250px] group-hover:flex-grow-0 group-hover:rounded-lg overflow-hidden flex justify-center items-center transition ease-in-out duration-500 bg-NoColor'>

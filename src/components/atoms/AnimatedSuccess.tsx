@@ -1,5 +1,3 @@
-import React from "react";
-
 interface SuccessStateProps {
   title?: String;
   desc?: String;

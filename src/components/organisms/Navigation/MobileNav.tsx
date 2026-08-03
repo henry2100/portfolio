@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import logoImg from '../../../assets/images/church_logo_2.png';
+import { useState } from 'react';
 import { FiMenu, FiX } from "react-icons/fi";
 import NavModal from './NavModal';
 

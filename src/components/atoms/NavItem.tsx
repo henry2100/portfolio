@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 // import { HashLink } from 'react-router-hash-link';
 import { useNavigate } from 'react-router-dom';
 import Alert from './Alert';

@@ -1,4 +1,3 @@
-import React from "react";
 import profileImg from "../../../assets/images/profile-6.jpg";
 import DirComp from "components/atoms/DirComp/DirComp";
 import { FadeUp, SlideLeft, SlideRight } from "components/atoms/MotionWrapper";

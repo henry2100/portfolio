@@ -1,4 +1,3 @@
-import React from "react";
 import Carousel from "components/organisms/Carousel";
 import { projectsData } from "../../../mockData/projectsData";
 import PageHeader from "components/molecules/PageHeader";

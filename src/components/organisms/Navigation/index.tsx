@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link as ScrollLink } from "react-scroll";
 import { ToSnakeCase } from 'components/atoms/CaseManager';
 import NavItem from 'components/atoms/NavItem';
-import { useLocation } from 'react-router-dom';
 import navData from 'components/molecules/navData';
 import { HEAmainLogo } from '../../../assets/svg/logo/testLogo';
 import { connect } from 'react-redux';
@@ -16,30 +15,8 @@ type Props = {
 
 const TopNav: React.FC<Props> = (props) => {
     const [onLogoHover, setOnLogoHover] = useState(false);
-    const [selected, setSelected] = useState('');
-
-    const location = useLocation();
-    const currentPath = location.pathname.split('/')[2];
 
     const { navItems } = navData();
-
-    const matchedNavItem = navItems.find(item => ToSnakeCase(item.navItem) === currentPath);
-
-    useEffect(() => {
-        if (matchedNavItem) {
-            const matched = ToSnakeCase(matchedNavItem.navItem);
-            setSelected(matched);
-        } else {
-            setSelected('home');
-        }
-    }, [currentPath, matchedNavItem]);
-
-    const handleNavItemClick = (e: React.MouseEvent, item: { available: boolean }) => {
-        if (!item.available) {
-            return;
-        }
-        setSelected((e.target as HTMLElement).dataset.name || '');
-    };
 
     const navItemFunc = (item: { newPage: boolean; navItem: string; navType?: string; action: (() => void) | null; style: string; icon1: string; icon2: string; available: boolean; }, index: number) => {
         return (
@@ -54,7 +31,7 @@ const TopNav: React.FC<Props> = (props) => {
                 style={item.style}
                 active={ToSnakeCase(item.navItem) === ToSnakeCase(props.sectionInView || '')}
                 navLink={`/dashboard/${ToSnakeCase(item.navItem)}`}
-                onClick={(e) => handleNavItemClick(e, item)}
+                onClick={() => {}}
                 action={item.action}
                 toNewPage={item.newPage}
             />

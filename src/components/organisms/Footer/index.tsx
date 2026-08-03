@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
-import FormInput from 'components/atoms/FormInput';
 import Button from 'components/atoms/Button';
-import contactStockImg from '../../../assets/images/stock_img_3.jpg';
 import { inputAlpha, inputEmail, inputNum } from 'utils';
 import FormTextArea from 'components/atoms/FormTextArea';
 import { CiEdit } from "react-icons/ci";
