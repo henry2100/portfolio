@@ -48,7 +48,7 @@ const NavItem: React.FC<Props> = (props) => {
         <div onClick={handleClick} data-name={ToSnakeCase(props.navItem)} className={props.style}>
             <div
                 data-name={ToSnakeCase(props.navItem)}
-                className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[100px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
+                className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[90px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
                     ${props.active || props.sectionInView ? 'text-Primary' : 'text-white'} ${!props.active && '!text-Secondary'} hover:text-Primary`}
             >
                 {props.icon_1 && props.icon_2 && (
@@ -78,7 +78,7 @@ const NavItem: React.FC<Props> = (props) => {
                 onClick={() => {
                     props.setModalState && props.setModalState(false);
                 }}
-                className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[100px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
+                className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[90px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
                     ${props.active ? 'text-Primary' : 'text-white'} ${!props.active && '!text-white'} hover:text-Primary ${props.active && props.navItem === 'My Resume' && 'text-white'}`}
             >
                 {props.icon_1 && props.icon_2 && (

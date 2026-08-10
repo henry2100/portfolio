@@ -62,8 +62,8 @@ const TopNav: React.FC<Props> = (props) => {
                     </ScrollLink>
                 </div>
 
-                <div className='min-w-1/2 w-fit flex items-center gap-8'>
-                    <nav className='w-fit flex items-center gap-[2px]'>
+                <div className='min-w-0 flex-1 flex items-center justify-end gap-5'>
+                    <nav className='max-w-full w-fit flex items-center gap-[2px] overflow-x-auto'>
                         {navItems.map((item, i) => navItemFunc(item, i))}
                     </nav>
                 </div>

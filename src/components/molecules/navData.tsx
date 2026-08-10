@@ -4,6 +4,9 @@ const useNavData = () => {
     const navItems = [
         { newPage: false, navItem: 'Home', navType: 'dash', action: null, style: '!hidden', icon1: '', icon2: '', available: true },
         { newPage: false, navItem: 'About Me', navType: 'dash', action: null, style: '!flex', icon1: '', icon2: '', available: true },
+        { newPage: false, navItem: 'Brand', navType: 'dash', action: null, style: '!flex', icon1: '', icon2: '', available: true },
+        { newPage: false, navItem: 'Packages', navType: 'dash', action: null, style: '!flex', icon1: '', icon2: '', available: true },
+        { newPage: false, navItem: 'Process', navType: 'dash', action: null, style: '!flex', icon1: '', icon2: '', available: true },
         { newPage: false, navItem: 'Projects', navType: 'dash', action: null, style: '!flex', icon1: '', icon2: '', available: true },
         { newPage: false, navItem: 'Skills', navType: 'dash', action: null, style: '!flex', icon1: '', icon2: '', available: true },
         { newPage: false, navItem: 'Service', navType: 'dash', action: null, style: '!flex', icon1: '', icon2: '', available: true },

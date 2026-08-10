@@ -5,6 +5,9 @@ import Section from "components/molecules/SectionTracker";
 import Contact from "./Contact";
 import Services from "./Service";
 import Footer from "components/organisms/Footer";
+import Brand from "./Brand";
+import Packages from "./Packages";
+import Process from "./Process";
 
 const Home = () => {
   return (
@@ -13,6 +16,24 @@ const Home = () => {
         id={"About Me"}
         children={<About />}
         addedStyle="group w-full min-h-screen text-center flex justify-center items-center py-32 mobile:py-20"
+      />
+
+      <Section
+        id={"Brand"}
+        children={<Brand />}
+        addedStyle="group w-full min-h-screen text-center flex flex-col gap-6 justify-start items-center py-32 mobile:py-20"
+      />
+
+      <Section
+        id={"Packages"}
+        children={<Packages />}
+        addedStyle="group w-full min-h-screen text-center flex flex-col gap-6 justify-start items-center py-32 mobile:py-20"
+      />
+
+      <Section
+        id={"Process"}
+        children={<Process />}
+        addedStyle="group w-full min-h-screen text-center flex flex-col gap-6 justify-start items-center py-32 mobile:py-20"
       />
 
       <Section

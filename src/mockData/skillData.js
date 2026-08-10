@@ -47,6 +47,7 @@ export const skillData = [
       "Styling web pages with cascading stylesheets for responsive, visually appealing designs.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
+    category: "Frontend",
     createdAt: "2025-01-13T16:20:24.576+00:00",
     updatedAt: "2025-01-13T16:20:24.576+00:00",
   },
@@ -58,6 +59,7 @@ export const skillData = [
       "React framework for production-grade server-side rendering and static site generation.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+    category: "Frontend",
     createdAt: "2025-01-13T16:29:46.170+00:00",
     updatedAt: "2025-01-13T16:29:46.170+00:00",
   },
@@ -69,6 +71,7 @@ export const skillData = [
       "Predictable state container for consistent and maintainable JavaScript application behavior.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
+    category: "Frontend",
     createdAt: "2025-01-14T15:41:18.200+00:00",
     updatedAt: "2025-01-14T15:41:18.200+00:00",
   },
@@ -80,6 +83,7 @@ export const skillData = [
       "Server-side scripting language for dynamic web application and backend development.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+    category: "Backend",
     createdAt: "2025-01-14T16:00:04.856+00:00",
     updatedAt: "2025-01-14T16:00:04.856+00:00",
   },
@@ -91,6 +95,7 @@ export const skillData = [
       "Distributed version control system for tracking changes and collaborating on code.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-plain-wordmark.svg",
+    category: "Tools & Platforms",
     createdAt: "2025-01-14T16:03:29.819+00:00",
     updatedAt: "2025-01-14T16:03:29.819+00:00",
   },
@@ -101,6 +106,7 @@ export const skillData = [
     description: "Utility-first CSS framework for rapid, custom UI development with ease.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+    category: "Frontend",
     createdAt: "2024-12-31T00:57:39.936+00:00",
     updatedAt: "2024-12-31T00:57:39.936+00:00",
   },
@@ -112,6 +118,7 @@ export const skillData = [
       "Relational database for structured data management and complex query operations.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
+    category: "Database",
     createdAt: "2024-12-31T00:59:20.951+00:00",
     updatedAt: "2024-12-31T00:59:20.951+00:00",
   },
@@ -123,6 +130,7 @@ export const skillData = [
       "Versatile programming language powering dynamic web and server-side applications.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
+    category: "Frontend",
     createdAt: "2025-01-13T16:27:24.682+00:00",
     updatedAt: "2025-01-13T16:27:24.682+00:00",
   },
@@ -134,6 +142,7 @@ export const skillData = [
       "Building interactive user interfaces with a component-based architecture and virtual DOM.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+    category: "Frontend",
     createdAt: "2024-12-31T00:53:27.101+00:00",
     updatedAt: "2024-12-31T00:53:27.101+00:00",
   },
@@ -145,6 +154,7 @@ export const skillData = [
       "CSS preprocessor extending stylesheets with variables, mixins, and nested rules.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg",
+    category: "Frontend",
     createdAt: "2025-01-13T16:25:54.491+00:00",
     updatedAt: "2025-01-13T16:25:54.491+00:00",
   },
@@ -156,6 +166,7 @@ export const skillData = [
       "Promise-based HTTP client for seamless API communication in browser and Node.js.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg",
+    category: "Tools & Platforms",
     createdAt: "2025-01-14T15:58:28.866+00:00",
     updatedAt: "2025-01-14T15:58:28.866+00:00",
   },
@@ -167,6 +178,7 @@ export const skillData = [
       "JavaScript runtime for building scalable and high-performance server-side applications.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
+    category: "Backend",
     createdAt: "2024-12-31T00:55:52.211+00:00",
     updatedAt: "2024-12-31T00:55:52.211+00:00",
   },
@@ -177,6 +189,7 @@ export const skillData = [
     description: "Typed superset of JavaScript for improved tooling, scalability, and reliability.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+    category: "Frontend",
     createdAt: "2024-12-31T00:56:51.695+00:00",
     updatedAt: "2024-12-31T00:56:51.695+00:00",
   },
@@ -188,6 +201,7 @@ export const skillData = [
       "Flexible NoSQL database for scalable, document-oriented data storage and retrieval.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+    category: "Database",
     createdAt: "2024-12-31T00:58:25.064+00:00",
     updatedAt: "2024-12-31T00:58:25.064+00:00",
   },
@@ -199,6 +213,7 @@ export const skillData = [
       "Standard markup language for structuring content and layouts on the web.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
+    category: "Frontend",
     createdAt: "2025-01-13T16:19:21.595+00:00",
     updatedAt: "2025-01-13T16:19:21.595+00:00",
   },
@@ -209,6 +224,7 @@ export const skillData = [
     description:
       "High-level programming language known for readability and versatility across domains.",
     images: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg",
+    category: "Backend",
     createdAt: "2025-01-14T16:02:21.748+00:00",
     updatedAt: "2025-01-14T16:02:21.748+00:00",
   },

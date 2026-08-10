@@ -1,6 +1,30 @@
 import { NavLink } from 'react-router-dom';
-import { FiFacebook, FiInstagram, FiTwitter, FiLinkedin, FiYoutube } from 'react-icons/fi';
+import { FiInstagram, FiLinkedin, FiGithub } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 import { GiHeartburn } from "react-icons/gi";
+
+const socialLinks = [
+  {
+    icon: FiLinkedin,
+    href: "http://www.linkedin.com/in/henry-adedugba-0a7302184",
+    label: "LinkedIn",
+  },
+  {
+    icon: FiGithub,
+    href: "https://github.com/henry2100",
+    label: "GitHub",
+  },
+  {
+    icon: FiInstagram,
+    href: "",
+    label: "Instagram",
+  },
+  {
+    icon: FaWhatsapp,
+    href: "https://wa.me/2348108300176?text=Hi%20Henry%2C%20I%27m%20interested%20in%20your%20web%20development%20services.",
+    label: "WhatsApp",
+  },
+];
 
 const SocialLinks = (props) => {
 
@@ -36,21 +60,29 @@ const SocialLinks = (props) => {
                 }
                 {props.social &&
                     <span className={`${props.iconWrapperStyle} flex gap-5 mobile:py-4 mobile:justify-evenly`}>
-                        <NavLink to="">
-                            <FiFacebook className={`${props.iconStyle} text-Background hover:text-Primary w-6 h-6 hover:scale-125 transition ease-in-out duration-250`} />
-                        </NavLink>
-                        <NavLink to="">
-                            <FiInstagram className={`${props.iconStyle} text-Background hover:text-Primary w-6 h-6 hover:scale-125 transition ease-in-out duration-250`} />
-                        </NavLink>
-                        <NavLink to="">
-                            <FiTwitter className={`${props.iconStyle} text-Background hover:text-Primary w-6 h-6 hover:scale-125 transition ease-in-out duration-250`} />
-                        </NavLink>
-                        <NavLink to="">
-                            <FiLinkedin className={`${props.iconStyle} text-Background hover:text-Primary w-6 h-6 hover:scale-125 transition ease-in-out duration-250`} />
-                        </NavLink>
-                        <NavLink to="">
-                            <FiYoutube className={`${props.iconStyle} text-Background hover:text-Primary w-6 h-6 hover:scale-125 transition ease-in-out duration-250`} />
-                        </NavLink>
+                        {socialLinks.map(({ icon: Icon, href, label }) =>
+                            href ? (
+                                <a
+                                    key={label}
+                                    href={href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    aria-label={label}
+                                    title={label}
+                                >
+                                    <Icon className={`${props.iconStyle} text-Background hover:text-Primary w-6 h-6 hover:scale-125 transition ease-in-out duration-250`} />
+                                </a>
+                            ) : (
+                                <span
+                                    key={label}
+                                    aria-label={label}
+                                    title={label}
+                                    className="cursor-pointer"
+                                >
+                                    <Icon className={`${props.iconStyle} text-Background hover:text-Primary w-6 h-6 hover:scale-125 transition ease-in-out duration-250`} />
+                                </span>
+                            )
+                        )}
                     </span>
                 }
             </div>
