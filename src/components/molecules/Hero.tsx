@@ -91,13 +91,13 @@ const Hero = () => {
               className="mobile:max-w-full max-w-[500px] w-full flex flex-col justify-center items-left mobile:items-center mobile:justify-center gap-6 mobile:gap-8 p-4 rounded-md backdrop-blur-md bg-Primary_Accents_2xs hover:bg-Primary_Accents_xs transition-colors duration-300"
             >
               <p className="font-light text-xl mobile:text-lg text-Background w-full text-left mobile:text-center">
-                <b className="text-Primary font-semibold">Henry</b>{" "}
-                is a results-driven Software Engineer with over four years of
-                professional experience building scalable, user-centric web
-                applications using React, TypeScript, and modern JavaScript
-                technologies. <br/><br/> He has worked across fintech and enterprise
-                environments, contributing to products at Seerbit, Interswitch,
-                and Jaroy Investments.
+                <b className="text-Primary font-semibold">Henry</b> is a software
+                engineer who builds fast, useful web apps — React, TypeScript &
+                the MERN stack. <br /> <br />
+                <span className="text-base mobile:text-sm text-GrayCustom6">
+                  4+ years across fintech & enterprise: Seerbit, Interswitch,
+                  Jaroy.
+                </span>
               </p>
 
               <motion.div

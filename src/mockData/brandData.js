@@ -1,6 +1,6 @@
 export const brandIntro = [
-  "Your website is more than just an online presence—it's a powerful business tool. It is often the first impression potential customers have of your brand. We design and develop modern, responsive, secure, and high-performing websites that not only look great but are built to help you attract customers, improve credibility, and grow your business.",
-  "Whether you're launching a startup, growing an established business, showcasing your portfolio, or selling products online, we have a solution tailored to your needs.",
+  "Your website is often the first impression customers have of your brand. We build modern, responsive, secure, and fast websites that attract customers, build credibility, and grow your business.",
+  "Startup, established business, or online store — we have a solution tailored to you.",
 ];
 
 export const whatsIncluded = [
