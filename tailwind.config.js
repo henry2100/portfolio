@@ -8,6 +8,9 @@ module.exports = {
 
       tablet: { min: "601px", max: "1199px" },
 
+      // Standard breakpoints for Panthera layout
+      md: "1024px",
+
       desktop: { min: "1200px" },
     },
     extend: {
@@ -23,22 +26,11 @@ module.exports = {
         1000: "1000ms",
       },
       colors: {
-        // Primary: '#008080', //Teal
-        // Primary: '#6366f1', //Indigo
-        // Primary: '#FF6961', //Pastel red:
-        // Primary: '#FF2400', //Scarlet
-        // Primary: '#FF4B33', //Red-orange
-        // Primary: '#FA003F', //Rose red
-        // Primary: '#8B0000', //Dark red
-        // Primary: '#A52A2A', //Red brown
-        // Primary: '#913831', //Red ochre:
-        // Primary: '#BE0C0A', //Red Phillip:
+        Primary: "#6366f1",
+        Primary_pale: "#6366f11A",
+        Secondary: "rgb(var(--color-secondary) / <alpha-value>)",
 
-        Primary: "#6366f1", //Red Phillip
-        Primary_pale: "#6366f11A", // 10%
-        Secondary: "#6E6E6E", //Dim-grey
-
-        rose_red: "#FA003F", //Dim-grey
+        rose_red: "#FA003F",
 
         Success: "#04A778",
         Success2: "#027A48",
@@ -89,7 +81,7 @@ module.exports = {
         Accent_blue5: "#E2EEFF",
         Accent_blue6: "#363F72",
 
-        Background: "#F8F9FA",
+        Background: "rgb(var(--color-background) / <alpha-value>)",
         Background1: "#FAFAFA",
         Background2: "#F8F8FC",
         Background3: "#F2F4F7",
@@ -99,7 +91,7 @@ module.exports = {
 
         transparent: "#e6e6e6",
 
-        GrayCustom: "#898989",
+        GrayCustom: "rgb(var(--color-graycustom) / <alpha-value>)",
         GrayCustom1: "#cacaca",
         GrayCustom2: "#959595",
         GrayCustom3: "#D9DBE85E",
@@ -120,16 +112,16 @@ module.exports = {
         Black5: "#959595",
         Black6: "#2E2F33",
 
-        DarkBg: "#121212",
-        DarkBg2: "#1C1C1C",
-        DarkBg3: "#020607",
-        DarkBg4: "#00000033",
-        DarkBg5: "#00000080",
-        DarkBg6: "#344054",
-        DarkBg7: "#101828",
-        DarkBg8: "#424242",
-        DarkBg9: "#0000000d",
-        DarkBg10: "#202020",
+        DarkBg: "rgb(var(--color-darkbg) / <alpha-value>)",
+        DarkBg2: "rgb(var(--color-darkbg2) / <alpha-value>)",
+        DarkBg3: "rgb(var(--color-darkbg3) / <alpha-value>)",
+        DarkBg4: "rgb(var(--color-darkbg4) / <alpha-value>)",
+        DarkBg5: "rgb(var(--color-darkbg5) / <alpha-value>)",
+        DarkBg6: "rgb(var(--color-darkbg6) / <alpha-value>)",
+        DarkBg7: "rgb(var(--color-darkbg7) / <alpha-value>)",
+        DarkBg8: "rgb(var(--color-darkbg8) / <alpha-value>)",
+        DarkBg9: "rgb(var(--color-darkbg9) / <alpha-value>)",
+        DarkBg10: "rgb(var(--color-darkbg10) / <alpha-value>)",
 
         Primary_Accents_3xs: "#6366f105",
         Primary_Accents_2xs: "#6366f10d",
@@ -143,25 +135,25 @@ module.exports = {
         Primary_Accents_4xl: "#6366f1cc",
         Primary_Accents_5xl: "#6366f1e6",
 
-        BackDrop_l_xs: "#ffffff1a",
-        BackDrop_l_sm: "#ffffff33",
-        BackDrop_l_md: "#ffffff4d",
-        BackDrop_l_lg: "#ffffff66",
-        BackDrop_l_xl: "#ffffff80",
-        BackDrop_l_2xl: "#ffffff99",
-        BackDrop_l_3xl: "#ffffffb3",
-        BackDrop_l_4xl: "#ffffffcc",
-        BackDrop_l_5xl: "#ffffffe6",
+        BackDrop_l_xs: "rgb(var(--color-backdrop_l_xs) / 0.1)",
+        BackDrop_l_sm: "rgb(var(--color-backdrop_l_sm) / 0.2)",
+        BackDrop_l_md: "rgb(var(--color-backdrop_l_md) / 0.3)",
+        BackDrop_l_lg: "rgb(var(--color-backdrop_l_lg) / 0.4)",
+        BackDrop_l_xl: "rgb(var(--color-backdrop_l_xl) / 0.5)",
+        BackDrop_l_2xl: "rgb(var(--color-backdrop_l_2xl) / 0.6)",
+        BackDrop_l_3xl: "rgb(var(--color-backdrop_l_3xl) / 0.7)",
+        BackDrop_l_4xl: "rgb(var(--color-backdrop_l_4xl) / 0.8)",
+        BackDrop_l_5xl: "rgb(var(--color-backdrop_l_5xl) / 0.9)",
 
-        BackDrop_d_xs: "#0000001a",
-        BackDrop_d_sm: "#00000033",
-        BackDrop_d_md: "#0000004d",
-        BackDrop_d_lg: "#00000066",
-        BackDrop_d_xl: "#00000080",
-        BackDrop_d_2xl: "#00000099",
-        BackDrop_d_3xl: "#000000b3",
-        BackDrop_d_4xl: "#000000cc",
-        BackDrop_d_5xl: "#000000e6",
+        BackDrop_d_xs: "rgb(var(--color-backdrop_d_xs) / 0.1)",
+        BackDrop_d_sm: "rgb(var(--color-backdrop_d_sm) / 0.2)",
+        BackDrop_d_md: "rgb(var(--color-backdrop_d_md) / 0.3)",
+        BackDrop_d_lg: "rgb(var(--color-backdrop_d_lg) / 0.4)",
+        BackDrop_d_xl: "rgb(var(--color-backdrop_d_xl) / 0.5)",
+        BackDrop_d_2xl: "rgb(var(--color-backdrop_d_2xl) / 0.6)",
+        BackDrop_d_3xl: "rgb(var(--color-backdrop_d_3xl) / 0.7)",
+        BackDrop_d_4xl: "rgb(var(--color-backdrop_d_4xl) / 0.8)",
+        BackDrop_d_5xl: "rgb(var(--color-backdrop_d_5xl) / 0.9)",
 
         NoColor: "#00000000",
 

@@ -54,7 +54,7 @@ export const skillData = [
   {
     _id: "67853f7a795aa4d52cd6062a",
     title: "Next Js",
-    proficiency: "intermediate",
+    proficiency: "expert",
     description:
       "React framework for production-grade server-side rendering and static site generation.",
     images:
@@ -113,7 +113,7 @@ export const skillData = [
   {
     _id: "677341e8f70b6164915a6b51",
     title: "MySQL",
-    proficiency: "intermediate",
+    proficiency: "expert",
     description:
       "Relational database for structured data management and complex query operations.",
     images:
@@ -125,7 +125,7 @@ export const skillData = [
   {
     _id: "67853eec795aa4d52cd60628",
     title: "JavaScript",
-    proficiency: "intermediate",
+    proficiency: "expert",
     description:
       "Versatile programming language powering dynamic web and server-side applications.",
     images:
@@ -137,7 +137,7 @@ export const skillData = [
   {
     _id: "67734087f70b6164915a6b45",
     title: "React Js",
-    proficiency: "intermediate",
+    proficiency: "expert",
     description:
       "Building interactive user interfaces with a component-based architecture and virtual DOM.",
     images:
@@ -149,7 +149,7 @@ export const skillData = [
   {
     _id: "67853e92795aa4d52cd60626",
     title: "SASS",
-    proficiency: "intermediate",
+    proficiency: "expert",
     description:
       "CSS preprocessor extending stylesheets with variables, mixins, and nested rules.",
     images:
@@ -185,7 +185,7 @@ export const skillData = [
   {
     _id: "67734153f70b6164915a6b4b",
     title: "TypeScript",
-    proficiency: "intermediate",
+    proficiency: "expert",
     description: "Typed superset of JavaScript for improved tooling, scalability, and reliability.",
     images:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
@@ -196,7 +196,7 @@ export const skillData = [
   {
     _id: "677341b1f70b6164915a6b4f",
     title: "MongoDB",
-    proficiency: "intermediate",
+    proficiency: "expert",
     description:
       "Flexible NoSQL database for scalable, document-oriented data storage and retrieval.",
     images:

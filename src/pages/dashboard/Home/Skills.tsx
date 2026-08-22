@@ -6,6 +6,8 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "components/atoms/MotionWrapper";
+import SectionContainer from "components/atoms/SectionContainer";
+import SectionTitle from "components/atoms/SectionTitle";
 
 const categories = [
   { key: "Frontend", icon: Code2 },
@@ -16,12 +18,8 @@ const categories = [
 
 const Skills = () => {
   return (
-    <div className="max-w-6xl w-full mobile:!p-5 tablet:p-8 flex flex-col gap-12 justify-start items-center">
-      <FadeUp>
-        <span className="text-left mobile:text-center font-bold text-5xl mobile:text-3xl text-Secondary tablet:text-Primary group-hover:text-Primary uppercase">
-          Skills & Technologies
-        </span>
-      </FadeUp>
+    <SectionContainer className="flex flex-col gap-12 justify-start items-center">
+      <SectionTitle>Skills & Technologies</SectionTitle>
 
       {categories.map(({ key, icon: Icon }) => {
         const items = skillData.filter((skill) => skill.category === key);
@@ -31,11 +29,11 @@ const Skills = () => {
             <FadeUp>
               <div className="w-full flex items-center gap-3">
                 <Icon className="w-6 h-6 text-Primary flex-shrink-0" />
-                <span className="font-semibold text-xl mobile:text-lg text-Secondary group-hover:text-Primary uppercase tracking-wide">
+                <span className="font-semibold text-xl mobile:text-lg group-hover:text-Primary uppercase tracking-wide" style={{ color: 'var(--site-text-secondary)' }}>
                   {key}
                 </span>
                 <span className="flex-1 border-b border-Primary/30" />
-                <span className="text-xs text-GrayCustom whitespace-nowrap">
+                <span className="text-xs whitespace-nowrap" style={{ color: 'var(--site-text-gray)' }}>
                   {items.length} {items.length === 1 ? "skill" : "skills"}
                 </span>
               </div>
@@ -54,7 +52,7 @@ const Skills = () => {
           </div>
         );
       })}
-    </div>
+    </SectionContainer>
   );
 };
 

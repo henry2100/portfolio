@@ -29,7 +29,8 @@ const PackageCard: React.FC<PackageCardProps> = ({
 
   return (
     <motion.div
-      className="group relative w-full h-full flex flex-col gap-4 p-6 mobile:p-5 rounded-lg border border-Secondary hover:border-Primary bg-DarkBg2 overflow-hidden transition-colors duration-300"
+      className="group relative w-full h-full flex flex-col gap-4 p-6 mobile:p-5 rounded-lg border hover:border-Primary overflow-hidden transition-colors duration-300"
+      style={{ borderColor: 'var(--site-card-border)', background: 'var(--site-card-bg)' }}
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
     >
@@ -37,7 +38,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
 
       <PageHeader
         pageTitle={name}
-        pageTitleStyle="!text-2xl mobile:!text-xl !text-Secondary group-hover:!text-Primary"
+        pageTitleStyle="!text-2xl mobile:!text-xl group-hover:!text-Primary"
         headerLayout="!pb-0 w-full"
       />
 
@@ -46,20 +47,21 @@ const PackageCard: React.FC<PackageCardProps> = ({
       </span>
 
       {description && (
-        <p className="text-sm mobile:text-xs text-Secondary text-left leading-relaxed">
+        <p className="text-sm mobile:text-xs text-left leading-relaxed" style={{ color: 'var(--site-text-secondary)' }}>
           {description}
         </p>
       )}
 
-      <div className="w-full border-t border-Secondary/30 pt-3 flex flex-col gap-2">
-        <span className="text-xs uppercase tracking-widest text-GrayCustom font-medium">
+      <div className="w-full border-t pt-3 flex flex-col gap-2" style={{ borderColor: 'var(--site-card-border)' }}>
+        <span className="text-xs uppercase tracking-widest font-medium" style={{ color: 'var(--site-text-gray)' }}>
           What's Included
         </span>
         <ul className="flex flex-col gap-1.5">
           {visibleIncludes.map((item, index) => (
             <li
               key={index}
-              className="flex items-start gap-2 text-sm mobile:text-xs text-Secondary text-left"
+              className="flex items-start gap-2 text-sm mobile:text-xs text-left"
+              style={{ color: 'var(--site-text-secondary)' }}
             >
               <Check className="w-4 h-4 text-Primary mt-0.5 flex-shrink-0" />
               <span>{item}</span>
@@ -82,20 +84,21 @@ const PackageCard: React.FC<PackageCardProps> = ({
       </div>
 
       {note && (
-        <p className="text-xs mobile:text-[11px] text-GrayCustom text-left leading-relaxed">
+        <p className="text-xs mobile:text-[11px] text-left leading-relaxed" style={{ color: 'var(--site-text-gray)' }}>
           {note}
         </p>
       )}
 
-      <div className="w-full border-t border-Secondary/30 pt-3 flex flex-col gap-2">
-        <span className="text-xs uppercase tracking-widest text-GrayCustom font-medium">
+      <div className="w-full border-t pt-3 flex flex-col gap-2" style={{ borderColor: 'var(--site-card-border)' }}>
+        <span className="text-xs uppercase tracking-widest font-medium" style={{ color: 'var(--site-text-gray)' }}>
           Ideal For
         </span>
         <div className="flex flex-wrap gap-2">
           {idealFor.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 rounded-full border border-Primary/40 text-xs text-GrayCustom bg-Primary_Accents_2xs"
+              className="px-3 py-1 rounded-full border border-Primary/40 text-xs bg-Primary_Accents_2xs"
+              style={{ color: 'var(--site-text-gray)' }}
             >
               {tag}
             </span>

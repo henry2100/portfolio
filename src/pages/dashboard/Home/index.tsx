@@ -11,7 +11,7 @@ import Process from "./Process";
 
 const Home = () => {
   return (
-    <div className="bg-black">
+    <div className="w-full" style={{ background: "var(--site-bg)", color: "var(--site-text)" }}>
       <Section
         id={"About Me"}
         children={<About />}

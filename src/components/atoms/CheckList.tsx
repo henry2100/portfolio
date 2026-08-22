@@ -19,7 +19,7 @@ const CheckList: React.FC<CheckListProps> = ({
       {items.map((item, index) => (
         <li key={index} className={`flex items-start gap-3 text-left ${itemClassName}`}>
           <Icon className="w-5 h-5 mobile:w-4 mobile:h-4 text-Primary mt-0.5 flex-shrink-0" />
-          <span className="text-sm mobile:text-xs text-Secondary leading-relaxed">{item}</span>
+          <span className="text-sm mobile:text-xs leading-relaxed" style={{ color: 'var(--site-text-secondary)' }}>{item}</span>
         </li>
       ))}
     </ul>

@@ -10,6 +10,7 @@ import Alert from "components/atoms/Alert";
 import emailjs from "@emailjs/browser";
 import SuccessState from "components/atoms/AnimatedSuccess";
 import { FadeUp, SlideLeft, SlideRight } from "components/atoms/MotionWrapper";
+import SectionContainer from "components/atoms/SectionContainer";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -101,7 +102,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="max-w-6xl w-full mobile:!p-5 tablet:p-8">
+    <SectionContainer>
       <FadeUp>
         <div className="flex mobile:flex-col gap-8 justify-between">
           <div>
@@ -125,7 +126,7 @@ const Contact = () => {
       {/* Content */}
       <div className="bg-NoColor flex mobile:flex-col mt-5 gap-5 overflow-hidden shadow-lg rounded-xl">
         {/* Image */}
-        <SlideLeft delay={0.2} className="w-1/2 mobile:w-full max-h-[60vh] overflow-hidden">
+        <SlideLeft delay={0.2} className="w-1/2 mobile:w-full max-h-[60vh] mobile:max-h-[30vh] overflow-hidden rounded-l-xl mobile:rounded-xl">
           <img
             src={contactStockImg}
             alt="contact"
@@ -138,9 +139,9 @@ const Contact = () => {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="w-full flex flex-col gap-5 p-5"
+          className="w-full flex flex-col gap-5 p-5 mobile:p-4"
         >
-          <div className="flex gap-3">
+          <div className="flex mobile:flex-col gap-3">
             <FormInput
               type="text"
               name="firstname"
@@ -151,48 +152,48 @@ const Contact = () => {
               onChange={(e) =>
                 inputAlpha.test(e.target.value) && handleChange(e)
               }
-              inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
-              inputStyle2="w-full !p-3 !border-none text-white"
-              wrapperStyle="w-1/2"
+              inputStyle="w-full !rounded-lg"
+              inputStyle2="w-full !p-3 !border-none !text-[var(--site-input-text)]"
+              wrapperStyle="w-1/2 mobile:w-full"
             />
 
             <FormInput
               type="text"
               name="lastname"
               label="Lastname"
-              labelStyle="!text-Secondary"
+              labelStyle="!text-[var(--site-label)]"
               placeholder="Enter Lastname"
               value={lastname}
               onChange={(e) =>
                 inputAlpha.test(e.target.value) && handleChange(e)
               }
-              inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
-              inputStyle2="w-full !p-3 !border-none text-white"
-              wrapperStyle="w-1/2"
+              inputStyle="w-full !rounded-lg"
+              inputStyle2="w-full !p-3 !border-none !text-[var(--site-input-text)]"
+              wrapperStyle="w-1/2 mobile:w-full"
             />
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex mobile:flex-col gap-3">
             <FormInput
               type="text"
               name="country"
               label="Country"
-              labelStyle="!text-Secondary"
+              labelStyle="!text-[var(--site-label)]"
               placeholder="Enter Country"
               value={country}
               onChange={(e) =>
                 inputAlpha.test(e.target.value) && handleChange(e)
               }
-              inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
-              inputStyle2="w-full !p-3 !border-none text-white"
-              wrapperStyle="w-1/2"
+              inputStyle="w-full !rounded-lg"
+              inputStyle2="w-full !p-3 !border-none !text-[var(--site-input-text)]"
+              wrapperStyle="w-1/2 mobile:w-full"
             />
 
             <FormInput
               type="text"
               name="mobile"
               label="Phone Number"
-              labelStyle="!text-Secondary"
+              labelStyle="!text-[var(--site-label)]"
               placeholder="Enter Phone Number"
               value={mobile}
               onChange={(e) =>
@@ -200,9 +201,9 @@ const Contact = () => {
                 e.target.value.length <= 11 &&
                 handleChange(e)
               }
-              inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
-              inputStyle2="w-full !p-3 !border-none text-white"
-              wrapperStyle="w-1/2"
+              inputStyle="w-full !rounded-lg"
+              inputStyle2="w-full !p-3 !border-none !text-[var(--site-input-text)]"
+              wrapperStyle="w-1/2 mobile:w-full"
             />
           </div>
 
@@ -210,26 +211,26 @@ const Contact = () => {
             type="email"
             name="email"
             label="Email"
-            labelStyle="!text-Secondary"
+            labelStyle="!text-[var(--site-label)]"
             placeholder="Enter Email address"
             value={email}
             validationErr={emailErr}
             onChange={handleChange}
-            inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
-            inputStyle2="w-full !p-3 !border-none text-white"
+            inputStyle="w-full !rounded-lg"
+            inputStyle2="w-full !p-3 !border-none !text-[var(--site-input-text)]"
           />
 
           <FormTextArea
             name="message"
             label="Message"
-            labelStyle="!text-Secondary"
+            labelStyle="!text-[var(--site-label)]"
             placeholder="Write your message here"
             value={message}
             rows={4}
-            icon={<CiEdit className="absolute right-5 top-4 text-white" />}
+            icon={<CiEdit className="absolute right-5 top-4" style={{ color: "var(--site-input-text)" }} />}
             onChange={handleChange}
-            inputStyle="w-full !bg-Primary_Accents_sm !rounded-lg"
-            inputStyle2="w-full !p-3 !border-none text-white"
+            inputStyle="w-full !rounded-lg"
+            inputStyle2="w-full !p-3 !border-none !text-[var(--site-input-text)]"
           />
 
           <Button
@@ -241,7 +242,7 @@ const Contact = () => {
         </form>
         </SlideRight>
       </div>
-    </div>
+    </SectionContainer>
   );
 };
 

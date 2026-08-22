@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import TopNav from "components/organisms/Navigation";
 
@@ -12,6 +12,17 @@ const Dashboard = () => {
   const { navItems } = useNavData();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [endOfPage, setEndOfPage] = useState(false);
+  const [showFloatingNav, setShowFloatingNav] = useState(false);
+
+  useEffect(() => {
+    const handleFloatingNav = () => {
+      setShowFloatingNav(window.scrollY >= window.innerHeight);
+    };
+
+    handleFloatingNav();
+    window.addEventListener("scroll", handleFloatingNav, { passive: true });
+    return () => window.removeEventListener("scroll", handleFloatingNav);
+  }, []);
 
   const sectionList = navItems.map((item) => item.navItem);
 
@@ -51,14 +62,20 @@ const Dashboard = () => {
       <div className="relative w-full h-full">
         {/* Navigation */}
 
-        <Headroom>
-          <TopNav
-            wrapperStyle="backdrop-blur-md !bg-BackDrop_d_sm hover:!bg-BackDrop_d_xl mobile:hidden fixed z-[25] top-5 left-0 right-0 mx-auto rounded-full py-5 !px-8 bg-white animate-fade_in transition ease-in-out duration-500 max-w-6xl w-full"
-          />
-          <MobileNav
-            wrapperStyle="mobile:!flex fixed z-[25] top-0 w-full bg-DarkBg10 py-5"
-          />
-        </Headroom>
+        {showFloatingNav && (
+          <Headroom
+            pin
+            style={{ zIndex: 40 }}
+            wrapperStyle={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 40 }}
+          >
+            <TopNav
+              wrapperStyle="backdrop-blur-md !bg-BackDrop_d_sm hover:!bg-BackDrop_d_xl mobile:hidden fixed z-[25] top-5 left-0 right-0 mx-auto rounded-full py-5 !px-8 bg-white animate-fade_in transition ease-in-out duration-500 max-w-6xl w-full"
+            />
+            <MobileNav
+              wrapperStyle="mobile:!flex fixed z-[25] top-0 w-full bg-DarkBg10 py-5"
+            />
+          </Headroom>
+        )}
 
         {/* Hero Section */}
         <Hero />
@@ -73,7 +90,7 @@ const Dashboard = () => {
           onClick={() => handleScroll()}
           className={`${
             endOfPage && "!animate-bounce"
-          } backdrop-blur !cursor-pointer group fixed z-20 bottom-16 mobile:bottom-5 right-5 border border-Primary mobile:border-none bg-NoColor mobile:bg-Primary_Accents_md hover:bg-Primary rounded-full w-10 h-10 flex justify-center items-center`}
+          } backdrop-blur !cursor-pointer group fixed z-20 bottom-16 mobile:bottom-5 right-5 border border-Primary mobile:border-none bg-NoColor mobile:bg-Primary_Accents_md hover:bg-Primary rounded-full w-12 h-12 mobile:w-11 mobile:h-11 flex justify-center items-center`}
         >
           {endOfPage ? (
             <FaCaretUp className="w-3/5 h-3/5 text-Primary mobile:text-white group-hover:text-white group-hover:animate-pulse" />
@@ -93,7 +110,7 @@ const Dashboard = () => {
           onClick={() => handleScroll("prev")}
           className={`${
             endOfPage ? "hidden" : "block"
-          } backdrop-blur mobile:hidden !cursor-pointer group fixed z-20 bottom-[120px] right-5 border border-Primary bg-NoColor hover:bg-Primary rounded-full w-10 h-10 flex justify-center items-center`}
+          } backdrop-blur mobile:hidden !cursor-pointer group fixed z-20 bottom-[120px] right-5 border border-Primary bg-NoColor hover:bg-Primary rounded-full w-12 h-12 flex justify-center items-center`}
         >
           <FaCaretUp className="w-3/5 h-3/5 text-Primary group-hover:text-white group-hover:animate-pulse" />
 

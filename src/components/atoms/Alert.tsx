@@ -4,8 +4,8 @@ type AlertType = 'success' | 'error' | 'warning' | 'info';
 
 const Alert = (type: AlertType, message:string, darkMode?:boolean) => {
     const alertStyle = { 
-        minWidth: '250px', 
-        maxWidth: '350px' ,
+        minWidth: '200px', 
+        maxWidth: '90vw' ,
         backgroundColor: darkMode ? '#424242' : '#fff', 
         color: darkMode ? '#fff' : '#424242' 
     }

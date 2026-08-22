@@ -75,7 +75,7 @@ const FormInput = React.forwardRef(({
       {label && <label className={`${labelStyle} ${darkMode ? 'text-Primary' : 'text-PrimaryActive'} mb-2`}>{label}</label>}
 
       <div className={`${inputContainerStyle} flex`}>
-        <span className={`${inputStyle} ${darkMode ? 'bg-Primary_Accents_sm !border-none text-Primary_200' : 'bg-white'} flex items-center w-3/4 rounded-md overflow-hidden relative`}>
+        <span className={`${inputStyle} ${darkMode ? 'bg-Primary_Accents_sm !border-none text-Primary_200' : ''} flex items-center w-full rounded-md overflow-hidden relative`} style={darkMode ? undefined : { background: 'var(--site-input-bg)' }}>
           {img  
             ? <img src={img} alt="icon" className={`${imgStyle} absolute right-5`} onClick={imgOnClick} />
             : icon ? icon

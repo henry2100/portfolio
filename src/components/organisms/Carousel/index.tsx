@@ -92,7 +92,7 @@ const Carousel = ({
             <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`${carouselBtnStyle} ${leftBtn} absolute top-1/2 -left-20 tablet:left-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center transition-colors`}
+                className={`${carouselBtnStyle} ${leftBtn} absolute top-1/2 -left-20 mobile:left-2 tablet:left-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center transition-colors z-10`}
                 onClick={prevSlide}
             >
                 <IoIosArrowBack />
@@ -100,12 +100,12 @@ const Carousel = ({
             <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`${carouselBtnStyle} ${rightBtn} absolute top-1/2 -right-20 tablet:right-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center transition-colors`}
+                className={`${carouselBtnStyle} ${rightBtn} absolute top-1/2 -right-20 mobile:right-2 tablet:right-5 transform -translate-y-1/2 bg-BackDrop_l_sm group-hover:bg-Primary_Accents_xl tablet:bg-Primary_Accents_md rounded-full text-white p-2 w-10 h-10 flex justify-center items-center transition-colors z-10`}
                 onClick={nextSlide}
             >
                 <IoIosArrowForward />
             </motion.button>
-            <div className="absolute -bottom-10 left-0 right-0 flex justify-center mb-4 gap-1">
+            <div className="absolute bottom-[-2.5rem] mobile:bottom-[-2rem] left-0 right-0 flex justify-center mb-4 mobile:mb-2 gap-1 px-4">
                 {images.map((_, i) => (
                     <motion.div
                         key={i}

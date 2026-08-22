@@ -3,11 +3,19 @@ import profileImg from "../../../assets/images/profile-6.jpg";
 import DirComp from "components/atoms/DirComp/DirComp";
 import { FadeUp, SlideLeft, SlideRight } from "components/atoms/MotionWrapper";
 import { LayoutDashboard, Server, Plug, Gauge } from "lucide-react";
+import { useSiteData } from "../../../context/SiteDataContext";
+import SectionContainer from "components/atoms/SectionContainer";
+import SectionTitle from "components/atoms/SectionTitle";
+import Card from "components/atoms/Card";
+import Tag from "components/atoms/Tag";
 
 const About = () => {
+  const { siteData } = useSiteData();
+  const profileImgSrc = siteData?.about?.images?.[0] || profileImg;
+
   const profile = [
     {
-      images: profileImg,
+      images: profileImgSrc,
       title: "Henry Ebose Adedugba",
       proficiency: "Mid-level Software Engineer",
       description: "Frontend Developer || MERN Stack",
@@ -77,12 +85,8 @@ const About = () => {
   ];
 
   return (
-    <div className="max-w-6xl w-full min-h-[70vh] h-fit mobile:min-h-screen flex flex-col justify-center items-center gap-10 mobile:!p-5 tablet:p-8">
-      <FadeUp>
-        <span className="text-left mobile:text-center font-bold text-5xl mobile:text-3xl text-Secondary tablet:text-Primary group-hover:text-Primary uppercase">
-          About Henry
-        </span>
-      </FadeUp>
+    <SectionContainer className="min-h-[70vh] h-fit mobile:min-h-screen flex flex-col justify-center items-center gap-10">
+      <SectionTitle>About Henry</SectionTitle>
 
       <div className="w-full flex mobile:flex-col justify-center items-center tablet:items-start gap-10 mb-10">
         {profile.map((item, i) => (
@@ -91,28 +95,26 @@ const About = () => {
               itemIndex={i}
               {...item}
               imgStyle="!scale-100"
-              wrapperStyle="!h-[70vh] flex justify-center items-center rounded-xl overflow-hidden"
+              wrapperStyle="!h-[70vh] mobile:!h-[50vh] flex justify-center items-center rounded-xl overflow-hidden"
               overlayStyle="!bg-BackDrop_d_xl !flex !flex-col !justify-end !items-end"
               overlayContentLayout="!h-fit !w-full"
               overlayDescriptionLayout="!h-fit !w-full !flex !justify-end mobile:!justify-center items-center"
             />
           </SlideLeft>
         ))}
-        <SlideRight delay={0.3} className="relative w-full min-h-[70vh]">
-          <div className="absolute top-0 left-0 w-full h-0 border-t border-t-Background border-l-[100px] border-l-BackDrop_l_xs border-r-[100px] border-r-BackDrop_l_xs"></div>
-          <div className="absolute bottom-0 mobile:-bottom-5 left-0 right-0 mx-auto w-1/2 h-0 border-b border-Primary border-l-[50px] border-l-BackDrop_l_xs border-r-[50px] border-r-BackDrop_l_xs"></div>
-
+        <SlideRight delay={0.3} className="relative w-full min-h-[70vh] mobile:min-h-[50vh] overflow-hidden">
           <div className="w-full h-full py-5 flex flex-col items-start gap-6">
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors duration-300 ${
+                  className={`px-4 mobile:px-3 py-1.5 mobile:py-1 rounded-full text-sm mobile:text-xs font-semibold transition-colors duration-300 ${
                     activeTab === tab.id
                       ? "bg-Primary text-white"
-                      : "text-GrayCustom border border-Secondary/30 hover:text-Primary hover:border-Primary"
+                      : "border border-Secondary/30 hover:text-Primary hover:border-Primary"
                   }`}
+                  style={activeTab !== tab.id ? { color: 'var(--site-text-gray)', borderColor: 'var(--site-card-border)' } : undefined}
                 >
                   {tab.label}
                 </button>
@@ -122,30 +124,27 @@ const About = () => {
             <FadeUp key={activeTab} className="w-full">
               {activeTab === "about" && (
                 <div className="flex flex-col gap-3">
-                  <p className="text-Background text-[17px] mobile:text-base text-left leading-[28px]">
+                  <p className="text-[17px] mobile:text-base text-left leading-[28px]" style={{ color: 'var(--site-text)' }}>
                     I'm <b className="text-Primary font-bold">Henry</b> — a
                     software engineer who enjoys turning complex problems into
                     simple, fast, and genuinely useful products.
                   </p>
-                  <p className="text-Background text-[17px] mobile:text-base text-left leading-[28px]">
+                  <p className="text-[17px] mobile:text-base text-left leading-[28px]" style={{ color: 'var(--site-text)' }}>
                     For the past 4+ years, I've built web apps across fintech
                     and enterprise — always focused on what actually helps the
                     people using them.
                   </p>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 tablet:grid-cols-2 gap-3">
                     {focusAreas.map(({ icon: Icon, title, line }) => (
-                      <div
-                        key={title}
-                        className="flex flex-col gap-2 p-4 rounded-lg border border-Secondary/30 bg-DarkBg2"
-                      >
+                      <Card className="!p-4 !flex !flex-col !gap-2">
                         <Icon className="w-5 h-5 text-Primary" />
-                        <span className="font-semibold text-Background text-sm">
+                        <span className="font-semibold text-sm" style={{ color: 'var(--site-text)' }}>
                           {title}
                         </span>
-                        <span className="text-xs text-GrayCustom text-left leading-relaxed">
+                        <span className="text-xs text-left leading-relaxed" style={{ color: 'var(--site-text-gray)' }}>
                           {line}
                         </span>
-                      </div>
+                      </Card>
                     ))}
                   </div>
                 </div>
@@ -156,16 +155,16 @@ const About = () => {
                   <span className="absolute left-[5px] top-1 bottom-1 w-px bg-Primary/30" />
                   {experience.map((item) => (
                     <div key={item.company} className="relative">
-                      <span className="absolute -left-6 top-1.5 w-3 h-3 rounded-full bg-Primary border-2 border-Background" />
+                      <span className="absolute -left-6 top-1.5 w-3 h-3 rounded-full bg-Primary border-2" style={{ borderColor: 'var(--site-bg)' }} />
                       <div className="flex items-baseline gap-2">
                         <span className="font-semibold text-Primary">
                           {item.company}
                         </span>
-                        <span className="text-sm text-GrayCustom">
+                        <span className="text-sm" style={{ color: 'var(--site-text-gray)' }}>
                           {item.role}
                         </span>
                       </div>
-                      <p className="text-sm text-Background/80 text-left leading-relaxed mt-1">
+                      <p className="text-sm text-left leading-relaxed mt-1" style={{ color: 'var(--site-text-secondary)' }}>
                         {item.desc}
                       </p>
                     </div>
@@ -176,12 +175,9 @@ const About = () => {
               {activeTab === "tools" && (
                 <div className="flex flex-wrap gap-2">
                   {tools.map((tool) => (
-                    <span
-                      key={tool}
-                      className="px-3 py-1.5 rounded-full border border-Primary/40 text-xs text-GrayCustom bg-Primary_Accents_2xs"
-                    >
+                    <Tag key={tool}>
                       {tool}
-                    </span>
+                    </Tag>
                   ))}
                 </div>
               )}
@@ -189,7 +185,7 @@ const About = () => {
           </div>
         </SlideRight>
       </div>
-    </div>
+    </SectionContainer>
   );
 };
 

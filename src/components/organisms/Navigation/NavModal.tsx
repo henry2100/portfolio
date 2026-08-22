@@ -40,16 +40,16 @@ const NavModal: React.FC<NavModalProps> = (props) => {
     return (
         <AppModal
             handleClose={() => props.setModalState(false)}
-            modalStyle={`bg-DarkBg10 border-2 border-NoColor hover:border-Primary min-h-[40vh] mobile:min-h-[30vh] overflow-y-scroll desktop:w-[25%] w-2/5 mobile:w-4/5 max-w-[320px] min-h-fit max-h-[600px] mobile:max-h-[80vh] h-fit z-30 right-0 left-0 top-24 mx-auto animate-slide_down2 mobile:animate-fade_in rounded-xl mobile:rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition ease-in-out duration-500`}
+            modalStyle="border-2 border-NoColor hover:border-Primary min-h-[40vh] mobile:min-h-[30vh] overflow-y-scroll desktop:w-[25%] w-2/5 mobile:w-[90%] max-w-[320px] min-h-fit max-h-[600px] mobile:max-h-[80vh] h-fit z-30 right-0 left-0 top-24 mobile:top-20 mx-auto animate-slide_down2 mobile:animate-fade_in rounded-xl mobile:rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition ease-in-out duration-500"
             backDropStyle='!bg-BackDrop_d_xl'
-            contentStyle="h-fit min-h-[40vh] mobile:min-h-[30vh] p-5 flex flex-col justify-evenly gap-5 custom_container"
+            contentStyle="h-fit min-h-[40vh] mobile:min-h-[30vh] p-5 mobile:p-4 flex flex-col justify-evenly gap-5 mobile:gap-4 custom_container"
             closeBtnStyle='text-Primary'
         >
-            <nav className='min-w-1/4 w-full flex mobile:hidden flex-col items-center gap-5 border-Primary'>
+            <nav className='min-w-1/4 w-full flex mobile:hidden flex-col items-center gap-5 border-Primary' style={{ background: 'var(--site-bg-nav)' }}>
                 {navItems.map((item, i) => navItemFunc(item, i))}
             </nav>
 
-            <nav className='min-w-1/4 w-full hidden mobile:flex flex-col items-center gap-5 border-Primary'>
+            <nav className='min-w-1/4 w-full hidden mobile:flex flex-col items-center gap-5 border-Primary' style={{ background: 'var(--site-bg-nav)' }}>
                 {navItems.map((item, i) => navItemFunc(item, i))}
             </nav>
 

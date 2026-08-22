@@ -5,8 +5,15 @@ import { FaCaretRight } from "react-icons/fa6";
 import MobileNav from "components/organisms/Navigation/MobileNav";
 import PageHeader from "./PageHeader";
 import { motion } from "framer-motion";
+import { useSiteData } from "../../context/SiteDataContext";
+
+import { useTheme } from "../../context/ThemeContext";
 
 const Hero = () => {
+  const { siteData } = useSiteData();
+  const { theme } = useTheme();
+  const bgSrc = siteData?.hero?.image || bgImg2;
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -44,8 +51,8 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      <TopNav wrapperStyle="!flex mobile:!hidden absolute z-20 py-5 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" />
-      <MobileNav wrapperStyle="!hidden mobile:!flex absolute z-20 bg-DarkBg10 py-5 px-20 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]" />
+      <TopNav wrapperStyle={`!flex mobile:!hidden absolute z-20 py-5 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]`} />
+      <MobileNav wrapperStyle={`!hidden mobile:!flex absolute z-20 py-5 mobile:px-5 !shadow-[rgba(13,_38,_76,_0.19)_0px_9px_20px]`} />
       <div className="flex flex-col justify-center items-center gap-10 w-full h-fit min-h-screen relative z-[18] pt-12 desktop:px-32 px-20 mobile:px-5">
         <div id="end"></div>
 
@@ -57,7 +64,7 @@ const Hero = () => {
           animate="visible"
         >
           <motion.img
-            src={bgImg2}
+            src={bgSrc}
             alt="bg-img"
             className="w-full h-full object-cover object-right"
             initial={{ scale: 1.1 }}
@@ -68,7 +75,7 @@ const Hero = () => {
         </motion.div>
 
         <motion.div
-          className="relative mobile:-top-32 w-full max-w-6xl flex justify-start items-center mobile:gap-12"
+          className="relative mobile:-top-24 w-full max-w-6xl flex justify-start items-center mobile:gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"

@@ -68,7 +68,7 @@ const ServiceCard = ({
 
   return (
     <motion.div
-      className="group overflow-hidden relative z-10 w-full h-auto flex flex-col px-5 py-8 gap-8 rounded-lg border border-Secondary hover:border-Primary transition-colors duration-300"
+      className="group overflow-hidden relative z-10 w-full h-auto flex flex-col px-5 mobile:px-4 py-8 mobile:py-6 gap-8 mobile:gap-6 rounded-lg border border-Secondary hover:border-Primary transition-colors duration-300"
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
     >
@@ -82,9 +82,9 @@ const ServiceCard = ({
           animate={{ rotate: showLayer ? 360 : 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-          <ServiceIcon className="mobile:absolute z-[8] w-36 h-36 mobile:w-56 mobile:h-56 top-5 -right-10 stroke-Secondary mobile:!stroke-Secondary/20 group-hover:stroke-Primary flex-shrink-0 transition-colors duration-300" />
+          <ServiceIcon className="mobile:absolute z-[8] w-36 h-36 mobile:w-24 mobile:h-24 mobile:top-3 mobile:right-3 top-5 -right-10 stroke-Secondary mobile:!stroke-Secondary/30 group-hover:stroke-Primary flex-shrink-0 transition-colors duration-300" />
         </motion.div>
-        <p className="text-2xl mobile:text-xl text-Secondary text-left">{description}</p>
+        <p className="text-2xl mobile:text-lg text-Secondary text-left">{description}</p>
       </div>
 
       <AnimatePresence>

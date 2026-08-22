@@ -1,7 +1,6 @@
 import PageHeader from "components/molecules/PageHeader";
 import CheckList from "components/atoms/CheckList";
 import {
-  FadeUp,
   StaggerContainer,
   StaggerItem,
 } from "components/atoms/MotionWrapper";
@@ -13,22 +12,23 @@ import {
   techStack,
   devopsServices,
 } from "../../../mockData/brandData";
+import SectionContainer from "components/atoms/SectionContainer";
+import SectionTitle from "components/atoms/SectionTitle";
+import Card from "components/atoms/Card";
+import KeyValuePairRow from "components/atoms/KeyValuePairRow";
+import Tag from "components/atoms/Tag";
 
 const Process = () => {
   return (
-    <div className="max-w-6xl w-full mobile:!p-5 tablet:p-8 flex flex-col gap-12 justify-start items-center">
-      <FadeUp>
-        <span className="text-left mobile:text-center font-bold text-5xl mobile:text-3xl text-Secondary tablet:text-Primary group-hover:text-Primary uppercase">
-          How We Work
-        </span>
-      </FadeUp>
+    <SectionContainer className="flex flex-col gap-12 justify-start items-center">
+      <SectionTitle>How We Work</SectionTitle>
 
       <div className="w-full flex flex-col gap-6">
         <PageHeader
           pageTitle="Our Development Process"
           pageDesc="A proven 7-step process from first conversation to post-launch support."
-          pageTitleStyle="!text-3xl mobile:!text-2xl !text-Secondary"
-          pageDescStyle="text-sm text-GrayCustom"
+          pageTitleStyle="!text-3xl mobile:!text-2xl"
+          pageDescStyle="text-sm"
           headerLayout="!pb-0 w-full"
         />
 
@@ -38,17 +38,17 @@ const Process = () => {
         >
           {developmentProcess.map((item, index) => (
             <StaggerItem key={item.step} className="h-full">
-              <div className="w-full h-full flex flex-col gap-2 p-5 rounded-lg border border-Secondary/30 bg-DarkBg2 hover:border-Primary transition-colors duration-300">
+              <Card className="!p-5 !flex !flex-col !gap-2">
                 <span className="text-4xl mobile:text-3xl font-[800] text-Primary/30">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="font-semibold text-Secondary group-hover:text-Primary">
+                <span className="font-semibold group-hover:text-Primary" style={{ color: 'var(--site-text-secondary)' }}>
                   {item.step}
                 </span>
-                <p className="text-sm text-GrayCustom text-left leading-relaxed">
+                <p className="text-sm text-left leading-relaxed" style={{ color: 'var(--site-text-gray)' }}>
                   {item.desc}
                 </p>
-              </div>
+              </Card>
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -58,20 +58,16 @@ const Process = () => {
         <div className="w-full flex flex-col gap-6">
           <PageHeader
             pageTitle="Estimated Project Timeline"
-            pageTitleStyle="!text-3xl mobile:!text-2xl !text-Secondary"
+            pageTitleStyle="!text-3xl mobile:!text-2xl"
             headerLayout="!pb-0 w-full"
           />
           <div className="flex flex-col gap-3">
             {projectTimeline.map((row) => (
-              <div
+              <KeyValuePairRow
                 key={row.type}
-                className="flex justify-between items-center gap-4 px-5 py-3 rounded-lg border border-Secondary/30 bg-DarkBg2 hover:border-Primary transition-colors duration-300"
-              >
-                <span className="text-sm text-Secondary text-left">{row.type}</span>
-                <span className="text-sm font-semibold text-Primary whitespace-nowrap">
-                  {row.delivery}
-                </span>
-              </div>
+                label={row.type}
+                value={row.delivery}
+              />
             ))}
           </div>
         </div>
@@ -79,12 +75,12 @@ const Process = () => {
         <div className="w-full flex flex-col gap-6">
           <PageHeader
             pageTitle="Payment Terms"
-            pageTitleStyle="!text-3xl mobile:!text-2xl !text-Secondary"
+            pageTitleStyle="!text-3xl mobile:!text-2xl"
             headerLayout="!pb-0 w-full"
           />
-          <div className="p-5 rounded-lg border border-Secondary/30 bg-DarkBg2">
+          <Card className="!p-5">
             <CheckList items={paymentTerms} />
-          </div>
+          </Card>
         </div>
       </div>
 
@@ -92,8 +88,8 @@ const Process = () => {
         <PageHeader
           pageTitle={supportPackage.title}
           pageDesc={supportPackage.subtitle}
-          pageTitleStyle="!text-3xl mobile:!text-2xl !text-Secondary"
-          pageDescStyle="text-sm text-GrayCustom"
+          pageTitleStyle="!text-3xl mobile:!text-2xl"
+          pageDescStyle="text-sm"
           headerLayout="!pb-0 w-full"
         />
 
@@ -103,30 +99,30 @@ const Process = () => {
         >
           {supportPackage.benefits.map((benefit) => (
             <StaggerItem key={benefit.title} className="h-full">
-              <div className="w-full h-full flex flex-col gap-2 p-5 rounded-lg border border-Primary/30 bg-Primary_Accents_2xs hover:border-Primary transition-colors duration-300">
+              <Card className="!p-5 !flex !flex-col !gap-2 !border-Primary/30 !bg-Primary_Accents_2xs">
                 <span className="font-semibold text-Primary">{benefit.title}</span>
-                <p className="text-sm text-GrayCustom text-left leading-relaxed">
+                <p className="text-sm text-left leading-relaxed" style={{ color: 'var(--site-text-gray)' }}>
                   {benefit.desc}
                 </p>
-              </div>
+              </Card>
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        <div className="w-full flex flex-col gap-3 p-5 rounded-lg border border-Secondary/30 bg-DarkBg2">
-          <span className="text-xs uppercase tracking-widest text-GrayCustom font-medium">
+        <Card className="!p-5 !flex !flex-col !gap-3">
+          <span className="text-xs uppercase tracking-widest font-medium" style={{ color: 'var(--site-text-gray)' }}>
             Important Information
           </span>
           <CheckList items={supportPackage.notes} />
-        </div>
+        </Card>
       </div>
 
       <div className="w-full flex flex-col gap-6">
         <PageHeader
           pageTitle="Technology Stack"
           pageDesc="Modern, secure, and scalable technologies used to deliver every project."
-          pageTitleStyle="!text-3xl mobile:!text-2xl !text-Secondary"
-          pageDescStyle="text-sm text-GrayCustom"
+          pageTitleStyle="!text-3xl mobile:!text-2xl"
+          pageDescStyle="text-sm"
           headerLayout="!pb-0 w-full"
         />
 
@@ -136,21 +132,16 @@ const Process = () => {
         >
           {techStack.map((group) => (
             <StaggerItem key={group.label} className="h-full">
-              <div className="w-full h-full flex flex-col gap-3 p-5 rounded-lg border border-Secondary/30 bg-DarkBg2 hover:border-Primary transition-colors duration-300">
+              <Card className="!p-5 !flex !flex-col !gap-3">
                 <span className="uppercase tracking-widest text-xs text-Primary font-medium">
                   {group.label}
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 rounded-full border border-Primary/40 text-xs text-GrayCustom bg-Primary_Accents_2xs"
-                    >
-                      {tech}
-                    </span>
+                    <Tag key={tech}>{tech}</Tag>
                   ))}
                 </div>
-              </div>
+              </Card>
             </StaggerItem>
           ))}
         </StaggerContainer>
@@ -160,8 +151,8 @@ const Process = () => {
         <PageHeader
           pageTitle="DevOps & Third-Party Services"
           pageDesc="Billed separately by their respective providers when applicable."
-          pageTitleStyle="!text-3xl mobile:!text-2xl !text-Secondary"
-          pageDescStyle="text-sm text-GrayCustom"
+          pageTitleStyle="!text-3xl mobile:!text-2xl"
+          pageDescStyle="text-sm"
           headerLayout="!pb-0 w-full"
         />
 
@@ -171,22 +162,22 @@ const Process = () => {
         >
           {devopsServices.map((item) => (
             <StaggerItem key={item.service}>
-              <div className="flex justify-between items-center gap-4 px-5 py-3 rounded-lg border border-Secondary/30 bg-DarkBg2 hover:border-Primary transition-colors duration-300">
-                <span className="text-sm text-Secondary text-left">{item.service}</span>
-                <span className="text-xs text-GrayCustom text-right">{item.purpose}</span>
-              </div>
+              <KeyValuePairRow
+                label={item.service}
+                value={item.purpose}
+              />
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        <p className="text-xs text-GrayCustom text-left leading-relaxed">
+        <p className="text-xs text-left leading-relaxed" style={{ color: 'var(--site-text-gray)' }}>
           Note: Most of these services offer free plans suitable for small
           businesses. If your project grows, paid plans may become necessary
           based on usage. We are happy to assist with the setup and
           configuration of all required services.
         </p>
       </div>
-    </div>
+    </SectionContainer>
   );
 };
 

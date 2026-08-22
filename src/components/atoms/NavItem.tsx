@@ -48,8 +48,9 @@ const NavItem: React.FC<Props> = (props) => {
         <div onClick={handleClick} data-name={ToSnakeCase(props.navItem)} className={props.style}>
             <div
                 data-name={ToSnakeCase(props.navItem)}
-                className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[90px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
-                    ${props.active || props.sectionInView ? 'text-Primary' : 'text-white'} ${!props.active && '!text-Secondary'} hover:text-Primary`}
+                className={`group relative overflow-hidden flex justify-center items-center py-1 w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
+                    ${props.active || props.sectionInView ? 'text-Primary' : ''} ${!props.active && '!text-Secondary'} hover:text-Primary`}
+                style={(!props.active && !props.sectionInView) ? { color: 'var(--site-text-secondary)' } : undefined}
             >
                 {props.icon_1 && props.icon_2 && (
                     <span className="flex-shrink-0 pointer-events-none">
@@ -79,7 +80,8 @@ const NavItem: React.FC<Props> = (props) => {
                     props.setModalState && props.setModalState(false);
                 }}
                 className={`group relative overflow-hidden flex justify-center items-center py-1 min-w-[90px] w-fit gap-3 cursor-pointer transition ease-in-out duration-500 
-                    ${props.active ? 'text-Primary' : 'text-white'} ${!props.active && '!text-white'} hover:text-Primary ${props.active && props.navItem === 'My Resume' && 'text-white'}`}
+                    ${props.active ? 'text-Primary' : ''} ${!props.active && ''} hover:text-Primary ${props.active && props.navItem === 'My Resume' && 'text-white'}`}
+                style={!props.active ? { color: 'var(--site-text-white)' } : undefined}
             >
                 {props.icon_1 && props.icon_2 && (
                     <span className="flex-shrink-0 pointer-events-none">

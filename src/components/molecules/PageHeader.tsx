@@ -43,7 +43,8 @@ const PageHeader = ({
           {pageTitle}
         </p>
         <p
-          className={`${pageDescStyle} font-normal text-base mobile:text-base text-Secondary`}
+          className={`${pageDescStyle} font-normal text-base mobile:text-base`}
+          style={{ color: 'var(--site-text-secondary)' }}
         >
           {pageDesc}
         </p>

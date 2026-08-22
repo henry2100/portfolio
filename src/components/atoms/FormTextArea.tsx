@@ -55,8 +55,9 @@ const FormTextArea: React.FC<FormTextAreaProps> = ({
             <div className={`${inputContainerStyle} flex`}>
                 <div
                     className={`flex ${inputStyle} ${
-                        darkMode ? 'bg-Primary_600 !border-none text-Primary_200' : 'bg-white'
+                        darkMode ? 'bg-Primary_600 !border-none text-Primary_200' : ''
                     } items-start rounded-md overflow-hidden relative`}
+                    style={darkMode ? undefined : { background: 'var(--site-input-bg)' }}
                 >
                     {value === '' && img && (
                         <img
