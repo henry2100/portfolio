@@ -11,7 +11,7 @@ import { useTheme } from "../../context/ThemeContext";
 
 const Hero = () => {
   const { siteData } = useSiteData();
-  const { theme } = useTheme();
+  useTheme();
   const bgSrc = siteData?.hero?.image || bgImg2;
 
   const containerVariants = {

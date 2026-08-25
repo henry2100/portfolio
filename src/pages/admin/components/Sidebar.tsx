@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { PanelLeftClose, LogOut, Sun, Moon } from "lucide-react";
+import { LogOut, Sun, Moon } from "lucide-react";
 import { NAV_ITEMS } from "../navConfig";
 import SidebarFlyout from "./SidebarFlyout";
 import { clearToken } from "services/siteData";

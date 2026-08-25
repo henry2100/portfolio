@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { getToken, uploadFile, saveSiteData, fileToDataUrl } from "services/siteData";
+import { getToken } from "services/siteData";
 import { useSiteData } from "context/SiteDataContext";
 import { UploadCardRef } from "components/molecules/UploadCard";
 

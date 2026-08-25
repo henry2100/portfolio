@@ -3,7 +3,6 @@ import ProjectPreview from "components/organisms/ProjectPreview";
 import { projectsData as fallbackProjects } from "../../../mockData/projectsData";
 import { StaggerContainer, StaggerItem, FadeUp } from "components/atoms/MotionWrapper";
 import SectionContainer from "components/atoms/SectionContainer";
-import SectionTitle from "components/atoms/SectionTitle";
 import { useSiteData } from "../../../context/SiteDataContext";
 import { FiExternalLink, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 

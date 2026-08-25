@@ -10,7 +10,7 @@ import {
   Sun,
   Moon,
 } from "lucide-react";
-import { NAV_ITEMS, findNavItem } from "../navConfig";
+import { findNavItem } from "../navConfig";
 import { clearToken } from "services/siteData";
 import { toggleCollapseSidebar } from "./Sidebar";
 import { useTheme } from "context/ThemeContext";
